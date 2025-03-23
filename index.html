@@ -1,226 +1,297 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DRIZZ – Satirical Justice Coin</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: #fdfdfd;
-      color: #222;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #DAA520;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      padding: 60px 20px;
-      text-align: center;
-      background: #fff;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.25em;
-      color: #444;
-    }
-    .comic-section {
-      background: #fff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .comic-section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    .comic-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .comic-strip {
-      width: 300px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #fafafa;
-    }
-    .comic-strip img {
-      width: 100%;
-      height: auto;
-    }
-    .locked-strip {
-      width: 300px;
-      border: 2px dashed #DAA520;
-      border-radius: 10px;
-      background: #fff8dc;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-    }
-    .locked-strip h3 {
-      color: #B8860B;
-    }
-    .contact-section {
-      background-color: #f9f9f9;
-      padding: 60px 20px;
-    }
-    .contact-wrapper {
-      max-width: 700px;
-      margin: auto;
-      background-color: #ffffffdd;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
-    }
-    .contact-wrapper h2 {
-      text-align: center;
-      color: #111;
-    }
-    .contact-wrapper p {
-      text-align: center;
-      color: #333;
-    }
-    form {
-      margin-top: 30px;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
-    button {
-      background: linear-gradient(90deg, #DAA520, #B8860B);
-      border: none;
-      color: #000;
-      font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: block;
-      margin: auto;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #ccc;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWDD - What Would Drizz Do</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmNjcnVvZHEzYnVxaHYzbGs1aTE1b2YxeDVrM2d1a2RtMTRpandhciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vyc7ry9jR13SlOE1AQ/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+        }
+        header {
+            background-color: rgba(30, 30, 30, 0.9);
+            color: #ffffff;
+            padding: 1.5em 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            margin: 1em 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #0078ff;
+        }
+        .container {
+            padding-top: 6em;
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        }
+        section {
+            padding: 2em;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 2em auto;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1em 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            background-color: #0078ff;
+            color: #ffffff;
+            border: none;
+            padding: 1em 2.5em;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1.5em;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background-color: #005fcc;
+        }
+        footer {
+            background-color: rgba(30, 30, 30, 0.9);
+            color: #ffffff;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        .social a {
+            color: #0078ff;
+            font-size: 1.2em;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .social a:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to DRIZZ</h1>
+
+<video autoplay loop muted playsinline id="bg-video">
+  <source src="bg-map.webm" type="video/webm">
+  <source src="bg-map.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+    <header>
+        <h1 class="header-title">WWDD - What Would Drizz Do</h1>
+        <nav>
+            <a href="#about-section">About Us</a>
+            <a href="#join-section">Join Us</a>
+            <a href="#disclaimer">Disclaimer</a>
+        </nav>
+
+<header>
+    <h1 class="header-title">WWDD - What Would Drizz Do</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="terms-of-service.html">Terms</a>
-      <a href="shop.html">Shop</a>
-      <a href="#comics">Comics</a>
-      <a href="#contact">Contact</a>
+        <a href="#about-section">About Us</a>
+        <a href="#join-section">Join Us</a>
+        <a href="#disclaimer">Disclaimer</a>
     </nav>
-  </header>
+    
+    <!-- Drizz Dogma Overlay -->
+    <div id="drizz-dogma-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; color: white; overflow-y: auto;">
+        <div style="max-width: 800px; margin: 50px auto; padding: 20px; background: #222; border-radius: 10px;">
+            <button id="close-overlay" style="float: right; background: transparent; border: none; font-size: 20px; color: white; cursor: pointer;">&times;</button>
+            <h2 style="text-align: center;">DRIZZ Dogma</h2>
+            
+            <!-- Full Whitepaper Text -->
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Introduction</h3>
+            <p>Welcome to the world of <strong>DRIZZ</strong>, the memecoin with a twist. Combining the humor of satirical comics with the innovation of blockchain technology, DRIZZ is here to disrupt the norm. Born from the chaos of modern politics and social commentary, DRIZZ represents not just a token, but a movement. With its iconic characters, DRIZZ (a witty Chief of a government agency) and his loyal Deputy Dog, "Kick", this memecoin is ready to bring laughs, utility, and a sense of community to its holders.</p>
+            
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Token Overview</h3>
+            <p><strong>Token Name:</strong> DRIZZ<br>
+            <strong>Blockchain:</strong> Solana<br>
+            <strong>Token Standard:</strong> SPL (Solana Program Library)<br>
+            <strong>Max Supply:</strong> 340,000,000 DRIZZ<br>
+            <strong>Utility:</strong> Holding DRIZZ tokens grants access to exclusive content, including weekly satirical comics.</p>
+            
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Tokenomics & Distribution</h3>
+            <table style="width: 100%; color: white; border-collapse: collapse; margin-bottom: 20px;">
+                <tr style="background: #444;">
+                    <th>Category</th>
+                    <th>Allocation (%)</th>
+                    <th>Total Tokens (DRIZZ)</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Founder </td>
+                    <td>7.5%</td>
+                    <td>25,500,000</td>
+                    <td>Held by the founder, vested over time</td>
+                </tr>
+                <tr>
+                    <td>Team </td>
+                    <td>12.5%</td>
+                    <td>42,500,000</td>
+                    <td>Split among team members with vesting</td>
+                </tr>
+                <tr>
+                    <td>Liquidity (DEX LP)</td>
+                    <td>30%</td>
+                    <td>102,000,000</td>
+                    <td>Initial liquidity on Raydium/Jupiter</td>
+                </tr>
+                <tr>
+                    <td>Community Airdrop</td>
+                    <td>20%</td>
+                    <td>68,000,000</td>
+                    <td>Free distribution to early adopters</td>
+                </tr>
+                <tr>
+                    <td>Marketing & Partnerships</td>
+                    <td>10%</td>
+                    <td>34,000,000</td>
+                    <td>Influencer campaigns, collaborations</td>
+                </tr>
+                <tr>
+                    <td>Treasury & DAO</td>
+                    <td>10%</td>
+                    <td>34,000,000</td>
+                    <td>For future development & governance</td>
+                </tr>
+                <tr>
+                    <td>Ecosystem Development</td>
+                    <td>10%</td>
+                    <td>34,000,000</td>
+                    <td>Future integrations, staking, etc.</td>
+                </tr>
+                <tr>
+                    <td>Burn Reserve</td>
+                    <td>5%</td>
+                    <td>17,000,000</td>
+                    <td>To control inflation if needed</td>
+                </tr>
+            </table>
+            
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Utility & Use Case</h3>
+            <p>DRIZZ combines humor with utility. Public weekly satirical comics are free for everyone, while exclusive continued comics are available only for DRIZZ token holders through email-based airdrops (Phase 1) or NFT distribution (Phase 2).</p>
+            
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Security & Transparency</h3>
+            <p>DRIZZ ensures secure Web3 authentication, liquidity locking, and team vesting schedules for transparency and long-term trust.</p>
+            
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Roadmap</h3>
+            <ul>
+                <li><strong>Phase 1:</strong> Token launch & community growth</li>
+                <li><strong>Phase 2:</strong> Exclusive comic airdrops</li>
+                <li><strong>Phase 3:</strong> Transition to NFTs & governance</li>
+            </ul>
+            
+            <h3>Meet the Team</h3>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="https://raw.githubusercontent.com/DrizzCoin/WWDD-Coin-Site/main/DRIZZ_and_KICK_resized.png" 
+     		style="max-width: 65%; border-radius: 10px;" 
+     		alt="DRIZZ and 'Kick'">
 
-  <div class="hero">
-    <h1>DRIZZ: The Satirical Coin of the People</h1>
-    <p>Exposing corruption, saving Murica, and distributing weekly comic strips – one token at a time.</p>
-  </div>
-
-  <section class="stats-section" style="background: #fff8dc; padding: 40px 20px; text-align: center;">
-    <h2 style="font-size: 2em; color: #B8860B;">DRIZZ Token Stats</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px;">
-
-      <div style="background: #fff; padding: 20px 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px; color: #222;">🪙 Max Supply</h3>
-        <p style="font-size: 1.5em; font-weight: bold;">340,000,000 DRIZZ</p>
-      </div>
-
-      <div style="background: #fff; padding: 20px 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px; color: #222;">🔄 In Circulation</h3>
-        <p style="font-size: 1.5em; font-weight: bold;">0 DRIZZ</p>
-      </div>
-
-      <div style="background: #fff; padding: 20px 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px; color: #222;">📦 Total Transactions</h3>
-        <p style="font-size: 1.5em; font-weight: bold;">0</p>
-      </div>
-
-      <div style="background: #fff; padding: 20px 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px; color: #222;">👛 Wallet Holders</h3>
-        <p style="font-size: 1.5em; font-weight: bold;">0</p>
-      </div>
-
+                <p>Meet DRIZZ, the confident and witty Chief of a government agency, and his loyal Deputy Dog, "Kick". Together, they embody the spirit of humor, resistance, and community that defines the DRIZZ memecoin.</p>
+            </div>
+            
+            <h3 style="font-size: 1.5em; color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; margin-top: 20px;">Legal Disclaimer</h3>
+            <p>DRIZZ is not affiliated with or endorsed by any government agency or individual. A portion of funds may support legal aid initiatives, subject to available resources, operational priorities, and compliance with applicable laws. Participation involves risk. Please consult legal or financial professionals before proceeding.</p>
+        </div>
     </div>
-    <p style="margin-top: 20px; font-style: italic; color: #666;">Live stats will auto-update once DRIZZ is deployed on Solana.</p>
-  </section>
 
+    <button id="show-dogma" style="margin-top: 10px; padding: 10px 20px; background: linear-gradient(90deg, #1e3a8a, #2563eb); color: white; border: none; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); font-size: 1em; cursor: pointer;">View DRIZZ Dogma</button>
+</header>
 
-  <section id="comics" class="comic-section">
-    <h2>Comic Viewer – Free Access</h2>
-    <div class="comic-grid">
-      <div class="comic-strip">
-        <img src="images/comic-strip-001.jpg" alt="Comic Strip 001">
-      </div>
-      <div class="comic-strip">
-        <img src="images/comic-strip-002.jpg" alt="Comic Strip 002">
-      </div>
-      <div class="locked-strip">
-        <h3>DRIZZ Exclusive Comics 🔒</h3>
-        <p>Connect your wallet to access full-length premium content.</p>
-        <button onclick="alert('Wallet gating coming soon!')">Connect Wallet</button>
-      </div>
+<script>
+    document.getElementById('show-dogma').addEventListener('click', function() {
+        document.getElementById('drizz-dogma-overlay').style.display = 'block';
+    });
+
+    document.getElementById('close-overlay').addEventListener('click', function() {
+        document.getElementById('drizz-dogma-overlay').style.display = 'none';
+    });
+</script>
+
+    </header>
+    <div class="container">
+        <section id="about-section" style="padding: 4em; background: rgba(0, 0, 0, 0.85);">
+        <h2>About Us</h2><p style="font-size: 1.2em;">DRIZZ was created as a symbol for those who don't <a href='https://www.dictionary.com/browse/capitulate' style='color: #d4a373; font-weight: bold; text-decoration: none;' target='_blank'>capitulate</a>.</p>
+ 	<img src="Designer.png" alt="WWDD Coin">
+<p style="font-family: 'Oswald', sans-serif; font-size: 1.5em; font-style: italic; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+    <strong>You Either Stand for Something or Fall for Anything</strong><p>
+        </section>
+        <section id="join-section">
+            <h2>Why DRIZZ?</h2>
+            <p>This project is more than a memecoin—it’s a stand for the 340 million. <p> 
+	    <p>Fight Tyranny. Fight Authoritarism. Fight Autocracy <p style="font-family: 'Oswald', sans-serif; font-size: 1.5em; font-weight: bold; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">F--- Off Oligarchs</p></p>
+            <button class="button">Join the Movement</button>
+	<section id="max-supply" class="fade-in">
+    		<h3>Total Max Supply of Drizz:</h3>
+    		<p><strong>340,000,000</strong></p>
+	</section>
+
+	<section id="token-counter" class="fade-in">
+   		 <h3>Total DRIZZ in Circulation:</h3>
+   		 <p><span id="counter">340,000,000</span></p>
+	</section>
+        </section>
+        <section class="social">
+            <h2>Connect with Us</h2>
+            <p>Follow us for the latest updates and announcements:</p>
+            <a href="https://x.com/WWDD_DRIZZ" target="_blank">Twitter (X)</a>
+        </section>
+        <section id="disclaimer">
+            <div>
+                <h3>Legal Disclaimer</h3>
+                <p>WWDD is not affiliated with or endorsed by any government agency or individual. A portion of funds may support legal aid initiatives, subject to available resources, operational priorities, and compliance with applicable laws. Participation involves risk. Please consult legal or financial professionals before proceeding.</p>
+            </div>
+        </section>
     </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="contact-wrapper">
-      <h2>Contact DRIZZ</h2>
-      <p>Have questions, feedback, or ideas? Shoot us a message below.</p>
-      <form action="https://formsubmit.co/support@drizz.io" method="POST">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://www.drizz.io/thank-you.html">
-
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 DRIZZ. All rights reserved.
-  </footer>
+    <footer>
+        <p>&copy; 2025 WWDD. Built on Solana. All rights reserved.</p>
+	<div style="text-align: center; margin-top: 20px;">
+    <a href="terms-of-service.html">
+        <button id="show-tos" style="
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            background: linear-gradient(90deg, #DAA520, #B8860B); 
+            color: black; 
+            font-weight: bold;
+            border: none; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+            font-size: 1em; 
+            cursor: pointer;
+        ">View Terms of Service</button>
+    </a>
+</div>
+    </footer>
 </body>
 </html>
