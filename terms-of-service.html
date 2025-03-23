@@ -9,24 +9,28 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('images/The_Daily_WWDD.jpeg') no-repeat center center fixed;
-            background-size: cover;
+            background: #000 url('The_Daily_WWDD.jpeg') no-repeat center top;
+            background-size: contain;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.88); /* white semi-transparent box */
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 65%;
+            max-height: 64%;
+            overflow-y: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         h1, h2 {
             color: #222;
             text-align: center;
         }
         p, ul {
-            max-width: 900px;
-            margin: 0 auto 20px auto;
             color: #000;
             line-height: 1.6;
             text-align: left;
@@ -41,7 +45,7 @@
             text-decoration: none;
             border-radius: 5px;
         }
-    </style>
+</style>
 </head>
 <body>
     <div class="container">
@@ -93,7 +97,7 @@
         official DRIZZ channels (e.g., website, social media, or email).</p>
 
         <h2>9. Contact Us</h2>
-        <p>For questions, email us at <a href="mailto:support@drizzmemecoin.com">support@drizzmemecoin.com</a></p>
+        <p>For questions, email us at <a href="mailto:support@drizz.io">support@drizz.io</a></p>
 
         <a href="index.html" class="button">Back to Homepage</a>
     </div>
