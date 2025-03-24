@@ -497,70 +497,47 @@
 
   </footer>
 
-<!-- Solana Wallet Adapter -->
-<script type="module">
-  import {
-    ConnectionProvider,
-    WalletProvider
-  } from "https://unpkg.com/@solana/wallet-adapter-react@0.15.18/lib/index.js";
-  import {
-    WalletModalProvider,
-    WalletMultiButton
-  } from "https://unpkg.com/@solana/wallet-adapter-react-ui@0.9.10/lib/index.js";
-  import {
-    PhantomWalletAdapter,
-    BackpackWalletAdapter,
-    SolflareWalletAdapter,
-    LedgerWalletAdapter,
-    NightlyWalletAdapter,
-    GlowWalletAdapter
-  } from "https://unpkg.com/@solana/wallet-adapter-wallets@0.15.18/lib/index.js";
-
-  const wallets = [
-    new PhantomWalletAdapter(),
-    new BackpackWalletAdapter(),
-    new SolflareWalletAdapter(),
-    new LedgerWalletAdapter(),
-    new NightlyWalletAdapter(),
-    new GlowWalletAdapter()
-  ];
-
-  const network = "https://api.mainnet-beta.solana.com";
-  const connection = new solanaWeb3.Connection(network);
-</script>
-
+<!-- Solana Web3.js -->
+<script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js"></script>
 <script>
-const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH"; // DRIZZ
-const THRESHOLD = 25;
+  const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
+  const THRESHOLD = 25;
 
-async function connectWallet() {
-  try {
-    const resp = await window.solana.connect();
-    const wallet = resp.publicKey.toString();
+  async function connectWallet() {
+    try {
+      if (!window.solana || !window.solana.isPhantom) {
+        alert("Phantom Wallet not found. Please install it.");
+        return;
+      }
 
-    const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
-    const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
-      new solanaWeb3.PublicKey(wallet),
-      { programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA") }
-    );
+      const resp = await window.solana.connect();
+      const wallet = resp.publicKey.toString();
 
-    const drizzAccount = tokenAccounts.value.find(acc =>
-      acc.account.data.parsed.info.mint === TOKEN_ADDRESS
-    );
+      const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
+      const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
+        new solanaWeb3.PublicKey(wallet),
+        {
+          programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+        }
+      );
 
-    const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+      const drizzAccount = tokenAccounts.value.find(acc =>
+        acc.account.data.parsed.info.mint === TOKEN_ADDRESS
+      );
 
-    if (amount >= THRESHOLD) {
-      document.getElementById("exclusive-comics").style.display = "block";
-      document.getElementById("access-message").textContent = "✅ Access granted!";
-    } else {
-      document.getElementById("access-message").textContent =
-        "❌ You need at least 25 DRIZZ to view exclusive content.";
+      const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+
+      if (amount >= THRESHOLD) {
+        alert("✅ Access granted!");
+      } else {
+        alert("❌ You need at least 25 DRIZZ to view exclusive content.");
+      }
+
+    } catch (error) {
+      console.error("Connection failed:", error);
+      alert("Failed to connect wallet.");
     }
-  } catch (err) {
-    alert("Failed to connect wallet.");
   }
-}
 </script>
 
 </body>
