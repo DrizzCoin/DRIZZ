@@ -496,5 +496,38 @@
 </a>
 
   </footer>
+
+<script type="module">
+  import { Connection, PublicKey } from "https://cdn.jsdelivr.net/npm/@solana/web3.js/+esm";
+
+  const TOKEN_ADDRESS = new PublicKey("8rSczAV2xeVQNGHs12WqaAK5LJUDVPjKSRcjLPXxcSH"); // DRIZZ token address
+  const THRESHOLD = 25;
+
+  window.connectWallet = async () => {
+    const provider = window.phantom?.solana;
+    if (!provider?.isPhantom) return alert("Phantom Wallet not found.");
+
+    const resp = await provider.connect();
+    const wallet = resp.publicKey;
+    const connection = new Connection("https://api.mainnet-beta.solana.com");
+
+    const tokenAccounts = await connection.getParsedTokenAccountsByOwner(wallet, {
+      programId: new PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+    });
+
+    const drizzAccount = tokenAccounts.value.find(
+      acc => acc.account.data.parsed.info.mint === TOKEN_ADDRESS.toString()
+    );
+    const amount = drizzAccount?.account.data.parsed.info.tokenAmount.uiAmount || 0;
+
+    if (amount >= THRESHOLD) {
+      document.getElementById("access-message").textContent = "✅ Access granted!";
+      document.getElementById("exclusive-comic").style.display = "block";
+    } else {
+      document.getElementById("access-message").textContent = "❌ You need at least 25 DRIZZ to view exclusive content.";
+    }
+  };
+</script>
+
 </body>
 </html>
