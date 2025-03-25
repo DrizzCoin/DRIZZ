@@ -126,7 +126,7 @@
       text-align: center;
       padding: 1.5em 0;
     }
-    /* Overlays for dogma & shop */
+    /* Overlays for Dogma & Shop */
     .overlay {
       display: none;
       position: fixed;
@@ -217,7 +217,6 @@
         <h2 style="text-align:center;">DRIZZ Dogma</h2>
 
         <!-- FULL WHITEPAPER TEXT (Exact text from your original Dogma, updated with 6-cat distribution) -->
-        
         <h3 class="dogma-subhead">Introduction</h3>
         <p>Welcome to the world of <strong>DRIZZ</strong>, the memecoin with a twist. Combining the humor of satirical comics with the innovation of blockchain technology, DRIZZ is here to disrupt the norm. Born from the chaos of modern politics and social commentary, DRIZZ represents not just a token, but a movement. With its iconic characters, DRIZZ (a witty Chief of a government agency) and his loyal Deputy Dog, “Kick,” this memecoin is ready to bring laughs, utility, and a sense of community to its holders.</p>
         
@@ -261,12 +260,12 @@
             <td>7.5%</td>
           </tr>
           <tr>
-            <td>Community Rewards & Airdrops<br</td>
+            <td>Community Rewards & Airdrops<br></td>
             <td>25,500,000 DRIZZ</td>
             <td>7.5%</td>
           </tr>
           <tr>
-  	    <td>Staking, Token-Gated Access</td>
+            <td>Staking, Token-Gated Access</td>
             <td>17,000,000 DRIZZ</td>
             <td>5%</td>
           </tr>
@@ -274,16 +273,15 @@
             <td>Development & Team Reserves</td>
             <td>51,000,000 DRIZZ</td>
             <td>15%</td>
-<tr>
-  <td colspan="3" style="text-align: center; padding-top: 20px;">
-    <a href="/DRIZZ_Tokenomics_Utility_Overview.pdf" download
-       style="background-color: #0047AB; color: white; padding: 10px 20px; border-radius: 8px;
-              text-decoration: none; font-weight: bold; display: inline-block;">
-      📥 Download Tokenomics PDF
-    </a>
-  </td>
-</tr>
-
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: center; padding-top: 20px;">
+              <a href="/DRIZZ_Tokenomics_Utility_Overview.pdf" download
+                 style="background-color: #0047AB; color: white; padding: 10px 20px; border-radius: 8px;
+                        text-decoration: none; font-weight: bold; display: inline-block;">
+                📥 Download Tokenomics PDF
+              </a>
+            </td>
           </tr>
         </table>
         
@@ -491,111 +489,123 @@
     </a>
   </footer>
 
-<!-- Solana Web3.js -->
-<script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js"></script>
-<script>
-  // Adjust these as needed
-  const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
-  const THRESHOLD = 25;
+  <!-- Solana Web3.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js"></script>
+  <script>
+    // Adjust these as needed
+    const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
+    const THRESHOLD = 25;
 
-  // Multi-wallet connect + robust gating
-  async function connectWallet() {
-    try {
-      const availableWallets = [];
-      // Check for Phantom
-      if (window.solana && window.solana.isPhantom) {
-        availableWallets.push({ name: "Phantom", provider: window.solana });
-      }
-      // Check for Solflare
-      if (window.solflare && window.solflare.isSolflare) {
-        availableWallets.push({ name: "Solflare", provider: window.solflare });
-      }
-      // Check for Sollet
-      if (window.sollet) {
-        availableWallets.push({ name: "Sollet", provider: window.sollet });
-      }
-      // Check for Slope
-      if (window.slope) {
-        availableWallets.push({ name: "Slope", provider: window.slope });
-      }
+    // Multi-wallet connect + robust gating
+    async function connectWallet() {
+      try {
+        const availableWallets = [];
+        // Check for Phantom
+        if (window.solana && window.solana.isPhantom) {
+          availableWallets.push({ name: "Phantom", provider: window.solana });
+        }
+        // Check for Solflare
+        if (window.solflare && window.solflare.isSolflare) {
+          availableWallets.push({ name: "Solflare", provider: window.solflare });
+        }
+        // Check for Sollet
+        if (window.sollet) {
+          availableWallets.push({ name: "Sollet", provider: window.sollet });
+        }
+        // Check for Slope
+        if (window.slope) {
+          availableWallets.push({ name: "Slope", provider: window.slope });
+        }
+        // Check for Backpack
+        if (window.backpack && window.backpack.isBackpack) {
+          availableWallets.push({ name: "Backpack", provider: window.backpack });
+        }
+        // Check for Glow
+        if (window.glow && window.glow.isGlow) {
+          availableWallets.push({ name: "Glow", provider: window.glow });
+        }
+        // Check for Moonshot
+        if (window.moonshot && window.moonshot.isMoonshot) {
+          availableWallets.push({ name: "Moonshot", provider: window.moonshot });
+        }
 
-      if (availableWallets.length === 0) {
-        alert("No Solana wallet found. Please install a Solana wallet like Phantom, Solflare, Sollet, or Slope.");
-        return;
-      }
-
-      let selectedWallet;
-      if (availableWallets.length === 1) {
-        // Only one wallet available
-        selectedWallet = availableWallets[0].provider;
-      } else {
-        // Prompt user to choose if multiple are found
-        const walletNames = availableWallets.map(w => w.name).join(", ");
-        const chosenName = prompt(
-          "Multiple wallets detected: " + walletNames + ".\n" +
-          "Please enter the name of the wallet you want to connect with:"
-        );
-        const walletChoice = availableWallets.find(
-          w => w.name.toLowerCase() === chosenName?.toLowerCase()
-        );
-        if (!walletChoice) {
-          alert("Invalid wallet selection.");
+        if (availableWallets.length === 0) {
+          alert("No Solana wallet found. Please install a Solana wallet like Phantom, Solflare, Sollet, Slope, Backpack, Glow, or Moonshot.");
           return;
         }
-        selectedWallet = walletChoice.provider;
-      }
 
-      // Connect
-      const resp = await selectedWallet.connect();
-      const walletAddress = resp.publicKey.toString();
-
-      // Check DRIZZ token balance
-      const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
-      const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
-        new solanaWeb3.PublicKey(walletAddress),
-        {
-          programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+        let selectedWallet;
+        if (availableWallets.length === 1) {
+          // Only one wallet available
+          selectedWallet = availableWallets[0].provider;
+        } else {
+          // Prompt user to choose if multiple are found
+          const walletNames = availableWallets.map(w => w.name).join(", ");
+          const chosenName = prompt(
+            "Multiple wallets detected: " + walletNames + ".\n" +
+            "Please enter the name of the wallet you want to connect with:"
+          );
+          const walletChoice = availableWallets.find(
+            w => w.name.toLowerCase() === chosenName?.toLowerCase()
+          );
+          if (!walletChoice) {
+            alert("Invalid wallet selection.");
+            return;
+          }
+          selectedWallet = walletChoice.provider;
         }
-      );
 
-      const drizzAccount = tokenAccounts.value.find(acc =>
-        acc.account.data.parsed.info.mint === TOKEN_ADDRESS
-      );
-      const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+        // Connect
+        const resp = await selectedWallet.connect();
+        const walletAddress = resp.publicKey.toString();
 
-      if (amount >= THRESHOLD) {
-        alert("✅ Access granted!");
-      } else {
-        // Show Access Blocker overlay if below threshold
-        document.getElementById('access-blocker').style.display = 'flex';
+        // Check DRIZZ token balance
+        const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
+        const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
+          new solanaWeb3.PublicKey(walletAddress),
+          {
+            programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+          }
+        );
+
+        const drizzAccount = tokenAccounts.value.find(acc =>
+          acc.account.data.parsed.info.mint === TOKEN_ADDRESS
+        );
+        const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+
+        if (amount >= THRESHOLD) {
+          alert("✅ Access granted!");
+        } else {
+          // Show Access Blocker overlay if below threshold
+          document.getElementById('access-blocker').style.display = 'flex';
+        }
+      } catch (error) {
+        console.error("Connection failed:", error);
+        alert("Failed to connect wallet.");
       }
-    } catch (error) {
-      console.error("Connection failed:", error);
-      alert("Failed to connect wallet.");
     }
-  }
 
-  // If user doesn't meet threshold, direct them to your "buy DRIZZ" page
-  function redirectUser() {
-    window.location.href = "https://buydrizz.com"; // change as needed
-  }
-</script>
+    // If user doesn't meet threshold, direct them to your "buy DRIZZ" page
+    function redirectUser() {
+      window.location.href = "https://buydrizz.com"; // change as needed
+    }
+  </script>
 
-<!-- Access Blocker Overlay -->
-<div id="access-blocker"
-     style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8); color: #fff; z-index: 10000;
-            align-items: center; justify-content: center;">
-  <div style="text-align: center;">
-    <h2>Access Denied</h2>
-    <p>You must have at least 25 DRIZZ tokens to access this content.</p>
-    <button onclick="redirectUser()"
-            style="padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
-                   background-color: #d4a373; color: #000;">
-      Learn More
-    </button>
+  <!-- Access Blocker Overlay -->
+  <div id="access-blocker"
+       style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+              background: rgba(0,0,0,0.8); color: #fff; z-index: 10000;
+              align-items: center; justify-content: center;">
+    <div style="text-align: center;">
+      <h2>Access Denied</h2>
+      <p>You must have at least 25 DRIZZ tokens to access this content.</p>
+      <button onclick="redirectUser()"
+              style="padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
+                     background-color: #d4a373; color: #000;">
+        Learn More
+      </button>
+    </div>
   </div>
-</div>
 
 </body>
 </html>
