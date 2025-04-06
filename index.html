@@ -360,8 +360,8 @@
         DRIZZ was created as a symbol for those who don't 
         <a href='https://www.dictionary.com/browse/capitulate'
            style='color:#d4a373; font-weight:bold; text-decoration:none;' target='_blank'>
-           capitulate
-        </a>.
+           capitulate.
+        </a>
       </p>
       <img src="Designer.png" alt="WWDD Coin">
       <p style="font-family:'Oswald',sans-serif; font-size:1.5em; font-style:italic; color:#fff;
@@ -452,11 +452,7 @@
         <div style="width:300px; background:#222; border:2px dashed #d4a373; border-radius:10px; padding:20px;">
           <h3 style="color:#d4a373;">DRIZZ Exclusive Comics 🔒</h3>
           <p style="color:#ccc;">Connect your wallet to access premium content.</p>
-          <button onclick="connectWallet()"
-                  style="margin-top:10px; background:#d4a373; padding:10px 20px; border:none;
-                         border-radius:8px; cursor:pointer;">
-            Connect Wallet
-          </button>
+          <wallet-multi-button style="margin-top:10px;"></wallet-multi-button>
         </div>
       </div>
     </section>
@@ -494,65 +490,12 @@
   <script>
     // Adjust these as needed
     const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
-    const THRESHOLD = 25;
+    const THRESHOLD = 250;
 
     // Multi-wallet connect + robust gating
     async function connectWallet() {
-      try {
-        const availableWallets = [];
-        // Check for Phantom
-        if (window.solana && window.solana.isPhantom) {
-          availableWallets.push({ name: "Phantom", provider: window.solana });
-        }
-        // Check for Solflare
-        if (window.solflare && window.solflare.isSolflare) {
-          availableWallets.push({ name: "Solflare", provider: window.solflare });
-        }
-        // Check for Sollet
-        if (window.sollet) {
-          availableWallets.push({ name: "Sollet", provider: window.sollet });
-        }
-        // Check for Slope
-        if (window.slope) {
-          availableWallets.push({ name: "Slope", provider: window.slope });
-        }
-        // Check for Backpack
-        if (window.backpack && window.backpack.isBackpack) {
-          availableWallets.push({ name: "Backpack", provider: window.backpack });
-        }
-        // Check for Glow
-        if (window.glow && window.glow.isGlow) {
-          availableWallets.push({ name: "Glow", provider: window.glow });
-        }
-        // Check for Moonshot
-        if (window.moonshot && window.moonshot.isMoonshot) {
-          availableWallets.push({ name: "Moonshot", provider: window.moonshot });
-        }
-
-        if (availableWallets.length === 0) {
-          alert("No Solana wallet found. Please install a Solana wallet like Phantom, Solflare, Sollet, Slope, Backpack, Glow, or Moonshot.");
-          return;
-        }
-
-        let selectedWallet;
-        if (availableWallets.length === 1) {
-          // Only one wallet available
-          selectedWallet = availableWallets[0].provider;
-        } else {
-          // Prompt user to choose if multiple are found
-          const walletNames = availableWallets.map(w => w.name).join(", ");
-          const chosenName = prompt(
-            "Multiple wallets detected: " + walletNames + ".\n" +
-            "Please enter the name of the wallet you want to connect with:"
-          );
-          const walletChoice = availableWallets.find(
-            w => w.name.toLowerCase() === chosenName?.toLowerCase()
-          );
-          if (!walletChoice) {
-            alert("Invalid wallet selection.");
-            return;
-          }
-          selectedWallet = walletChoice.provider;
+  
+       ;
         }
 
         // Connect
@@ -607,5 +550,8 @@
     </div>
   </div>
 
+
+<!-- Solana Wallet Adapter SDK - ESM Modules -->
+<script type="module" src="./wallet-adapter.js"></script>
 </body>
 </html>
