@@ -452,11 +452,7 @@
         <div style="width:300px; background:#222; border:2px dashed #d4a373; border-radius:10px; padding:20px;">
           <h3 style="color:#d4a373;">DRIZZ Exclusive Comics 🔒</h3>
           <p style="color:#ccc;">Connect your wallet to access premium content.</p>
-          <button onclick="connectWallet()"
-                  style="margin-top:10px; background:#d4a373; padding:10px 20px; border:none;
-                         border-radius:8px; cursor:pointer;">
-            Connect Wallet
-          </button>
+          <wallet-multi-button style="margin-top:10px;"></wallet-multi-button>
         </div>
       </div>
     </section>
@@ -491,7 +487,52 @@
 
   <!-- Solana Web3.js -->
   <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js"></script>
+  <script>
+    // Adjust these as needed
+    const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
+    const THRESHOLD = 250;
+
+    // Multi-wallet connect + robust gating
+    async function connectWallet() {
   
+       ;
+        }
+
+        // Connect
+        const resp = await selectedWallet.connect();
+        const walletAddress = resp.publicKey.toString();
+
+        // Check DRIZZ token balance
+        const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
+        const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
+          new solanaWeb3.PublicKey(walletAddress),
+          {
+            programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+          }
+        );
+
+        const drizzAccount = tokenAccounts.value.find(acc =>
+          acc.account.data.parsed.info.mint === TOKEN_ADDRESS
+        );
+        const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+
+        if (amount >= THRESHOLD) {
+          alert("✅ Access granted!");
+        } else {
+          // Show Access Blocker overlay if below threshold
+          document.getElementById('access-blocker').style.display = 'flex';
+        }
+      } catch (error) {
+        console.error("Connection failed:", error);
+        alert("Failed to connect wallet.");
+      }
+    }
+
+    // If user doesn't meet threshold, direct them to your "buy DRIZZ" page
+    function redirectUser() {
+      window.location.href = "https://buydrizz.com"; // change as needed
+    }
+  </script>
 
   <!-- Access Blocker Overlay -->
   <div id="access-blocker"
@@ -500,7 +541,7 @@
               align-items: center; justify-content: center;">
     <div style="text-align: center;">
       <h2>Access Denied</h2>
-      <p>You must have at least 250 DRIZZ tokens to access this content.</p>
+      <p>You must have at least 25 DRIZZ tokens to access this content.</p>
       <button onclick="redirectUser()"
               style="padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
                      background-color: #d4a373; color: #000;">
@@ -511,15 +552,6 @@
 
 
 <!-- Solana Wallet Adapter SDK - ESM Modules -->
-
-
-  <!-- Solana Web3.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js"></script>
-  <script>
-    const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
-    const THRESHOLD = 250;
-  </script>
-
-  <script type="module" src="./wallet-adapter.js"></script>
+<script type="module" src="./wallet-adapter.js"></script>
 </body>
 </html>
