@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WWDD - What Would Drizz Do</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   WWDD - What Would Drizz Do
+  </title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
     
     body {
       font-family: 'Arial', sans-serif;
@@ -189,148 +191,264 @@
       color: #005fcc;
     }
   </style>
-</head>
-<body>
-
+ </head>
+ <body>
   <!-- HEADER -->
   <header>
-    <div class="header-inner">
-      <!-- Title -->
-      <h1 class="header-title">WWDD - What Would Drizz Do</h1>
-      
-      <!-- Navigation under the title -->
-      <div class="navbar">
-        <a href="#about-section">About Us</a>
-        <a href="#join-section">Join Us</a>
-        <a href="javascript:void(0)" onclick="openShop()">Shop 🛒</a>
-        <a href="#disclaimer">Disclaimer</a>
-      </div>
-
-      <!-- Connect Wallet on top-right -->
-      <button id="header-wallet-button" onclick="connectWallet()">Connect Wallet</button>
+   <div class="header-inner">
+    <!-- Title -->
+    <h1 class="header-title">
+     WWDD - What Would Drizz Do
+    </h1>
+    <!-- Navigation under the title -->
+    <div class="navbar">
+     <a href="#about-section">
+      About Us
+     </a>
+     <a href="#join-section">
+      Join Us
+     </a>
+     <a href="javascript:void(0)" onclick="openShop()">
+      Shop 🛒
+     </a>
+     <a href="#disclaimer">
+      Disclaimer
+     </a>
     </div>
-
+    <!-- Connect Wallet on top-right -->
+    <wallet-multi-button id="header-wallet-button">
+     Connect Wallet
+    </wallet-multi-button>
     <!-- DRIZZ Dogma Overlay -->
-    <div id="drizz-dogma-overlay" class="overlay">
-      <div class="overlay-content">
-        <button class="close-button" onclick="closeDogma()">&times;</button>
-        <h2 style="text-align:center;">DRIZZ Dogma</h2>
-
-        <!-- FULL WHITEPAPER TEXT (Exact text from your original Dogma, updated with 6-cat distribution) -->
-        <h3 class="dogma-subhead">Introduction</h3>
-        <p>Welcome to the world of <strong>DRIZZ</strong>, the memecoin with a twist. Combining the humor of satirical comics with the innovation of blockchain technology, DRIZZ is here to disrupt the norm. Born from the chaos of modern politics and social commentary, DRIZZ represents not just a token, but a movement. With its iconic characters, DRIZZ (a witty Chief of a government agency) and his loyal Deputy Dog, “Kick,” this memecoin is ready to bring laughs, utility, and a sense of community to its holders.</p>
-        
-        <h3 class="dogma-subhead">Token Overview</h3>
-        <p>
-          <strong>Token Name:</strong> DRIZZ<br>
-          <strong>Blockchain:</strong> Solana<br>
-          <strong>Token Standard:</strong> SPL (Solana Program Library)<br>
-          <strong>Max Supply:</strong> 340,000,000 DRIZZ<br>
-          <strong>Utility:</strong> Holding DRIZZ tokens grants access to exclusive content, including weekly satirical comics.
-        </p>
-        
-        <h3 class="dogma-subhead">Tokenomics & Distribution</h3>
-        <p>
-          DRIZZ isn’t just hype—our tokenomics ensure a balanced, fair distribution while fueling long-term growth. Join us as part of the revolution.
-        </p>
-        <table style="width: 100%; color: white; border-collapse: collapse; margin-bottom: 20px;">
-          <tr style="background: #444;">
-            <th>Category</th>
-            <th>Tokens Allocated</th>
-            <th>% of Supply</th>
-          </tr>
-          <tr>
-            <td>Founder’s Allocation (Vesting)</td>
-            <td>102,000,000 DRIZZ</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>Liquidity Pool (DEX & Listings)</td>
-            <td>68,000,000 DRIZZ</td>
-            <td>20%</td>
-          </tr>
-          <tr>
-            <td>Public (Pre-sale / Investors)</td>
-            <td>51,000,000 DRIZZ</td>
-            <td>15%</td>
-          </tr>
-          <tr>
-            <td>Marketing & Partnerships</td>
-            <td>25,500,000 DRIZZ</td>
-            <td>7.5%</td>
-          </tr>
-          <tr>
-            <td>Community Rewards & Airdrops<br></td>
-            <td>25,500,000 DRIZZ</td>
-            <td>7.5%</td>
-          </tr>
-          <tr>
-            <td>Staking, Token-Gated Access</td>
-            <td>17,000,000 DRIZZ</td>
-            <td>5%</td>
-          </tr>
-          <tr>
-            <td>Development & Team Reserves</td>
-            <td>51,000,000 DRIZZ</td>
-            <td>15%</td>
-          </tr>
-          <tr>
-            <td colspan="3" style="text-align: center; padding-top: 20px;">
-              <a href="/DRIZZ_Tokenomics_Utility_Overview.pdf" download
-                 style="background-color: #0047AB; color: white; padding: 10px 20px; border-radius: 8px;
+    <div class="overlay" id="drizz-dogma-overlay">
+     <div class="overlay-content">
+      <button class="close-button" onclick="closeDogma()">
+       ×
+      </button>
+      <h2 style="text-align:center;">
+       DRIZZ Dogma
+      </h2>
+      <!-- FULL WHITEPAPER TEXT (Exact text from your original Dogma, updated with 6-cat distribution) -->
+      <h3 class="dogma-subhead">
+       Introduction
+      </h3>
+      <p>
+       Welcome to the world of
+       <strong>
+        DRIZZ
+       </strong>
+       , the memecoin with a twist. Combining the humor of satirical comics with the innovation of blockchain technology, DRIZZ is here to disrupt the norm. Born from the chaos of modern politics and social commentary, DRIZZ represents not just a token, but a movement. With its iconic characters, DRIZZ (a witty Chief of a government agency) and his loyal Deputy Dog, “Kick,” this memecoin is ready to bring laughs, utility, and a sense of community to its holders.
+      </p>
+      <h3 class="dogma-subhead">
+       Token Overview
+      </h3>
+      <p>
+       <strong>
+        Token Name:
+       </strong>
+       DRIZZ
+       <br/>
+       <strong>
+        Blockchain:
+       </strong>
+       Solana
+       <br/>
+       <strong>
+        Token Standard:
+       </strong>
+       SPL (Solana Program Library)
+       <br/>
+       <strong>
+        Max Supply:
+       </strong>
+       340,000,000 DRIZZ
+       <br/>
+       <strong>
+        Utility:
+       </strong>
+       Holding DRIZZ tokens grants access to exclusive content, including weekly satirical comics.
+      </p>
+      <h3 class="dogma-subhead">
+       Tokenomics &amp; Distribution
+      </h3>
+      <p>
+       DRIZZ isn’t just hype—our tokenomics ensure a balanced, fair distribution while fueling long-term growth. Join us as part of the revolution.
+      </p>
+      <table style="width: 100%; color: white; border-collapse: collapse; margin-bottom: 20px;">
+       <tr style="background: #444;">
+        <th>
+         Category
+        </th>
+        <th>
+         Tokens Allocated
+        </th>
+        <th>
+         % of Supply
+        </th>
+       </tr>
+       <tr>
+        <td>
+         Founder’s Allocation (Vesting)
+        </td>
+        <td>
+         102,000,000 DRIZZ
+        </td>
+        <td>
+         30%
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Liquidity Pool (DEX &amp; Listings)
+        </td>
+        <td>
+         68,000,000 DRIZZ
+        </td>
+        <td>
+         20%
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Public (Pre-sale / Investors)
+        </td>
+        <td>
+         51,000,000 DRIZZ
+        </td>
+        <td>
+         15%
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Marketing &amp; Partnerships
+        </td>
+        <td>
+         25,500,000 DRIZZ
+        </td>
+        <td>
+         7.5%
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Community Rewards &amp; Airdrops
+         <br/>
+        </td>
+        <td>
+         25,500,000 DRIZZ
+        </td>
+        <td>
+         7.5%
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Staking, Token-Gated Access
+        </td>
+        <td>
+         17,000,000 DRIZZ
+        </td>
+        <td>
+         5%
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Development &amp; Team Reserves
+        </td>
+        <td>
+         51,000,000 DRIZZ
+        </td>
+        <td>
+         15%
+        </td>
+       </tr>
+       <tr>
+        <td colspan="3" style="text-align: center; padding-top: 20px;">
+         <a download="" href="/DRIZZ_Tokenomics_Utility_Overview.pdf" style="background-color: #0047AB; color: white; padding: 10px 20px; border-radius: 8px;
                         text-decoration: none; font-weight: bold; display: inline-block;">
-                📥 Download Tokenomics PDF
-              </a>
-            </td>
-          </tr>
-        </table>
-        
-        <h3 class="dogma-subhead">Utility & Use Case</h3>
-        <p>DRIZZ merges comedic satire with real blockchain utility. Public weekly comics are free for all, while exclusive continued storylines are reserved for DRIZZ token holders via wallet-based token verification or gated access mechanisms, airdrops, or NFT distributions.</p>
-        
-        <h3 class="dogma-subhead">Security & Transparency</h3>
-        <p>DRIZZ ensures secure Web3 authentication, liquidity locking, and team vesting schedules for transparency and long-term trust.</p>
-        
-        <h3 class="dogma-subhead">Roadmap</h3>
-        <ul>
-          <li><strong>Phase 1:</strong> Token launch & community growth</li>
-          <li><strong>Phase 2:</strong> Exclusive comic airdrops</li>
-          <li><strong>Phase 3:</strong> Transition to NFTs & governance</li>
-        </ul>
-        
-        <h3>Meet the Team</h3>
-        <div style="text-align: center; margin-bottom: 20px;">
-          <img src="https://raw.githubusercontent.com/DrizzCoin/WWDD-Coin-Site/main/DRIZZ_and_KICK_resized.png" 
-               style="max-width: 65%; border-radius: 10px;" 
-               alt="DRIZZ and 'Kick'">
-          <p>Meet DRIZZ, the confident and witty Chief of a government agency, and his loyal Deputy Dog, “Kick.” Together, they embody the spirit of humor, resistance, and community that defines the DRIZZ memecoin.</p>
-        </div>
-        
-        <h3 class="dogma-subhead">Legal Disclaimer</h3>
-        <p>DRIZZ is not affiliated with or endorsed by any government agency or individual. A portion of funds may support legal aid initiatives, subject to available resources, operational priorities, and compliance with applicable laws. Participation involves risk. Please consult legal or financial professionals before proceeding.</p>
+          📥 Download Tokenomics PDF
+         </a>
+        </td>
+       </tr>
+      </table>
+      <h3 class="dogma-subhead">
+       Utility &amp; Use Case
+      </h3>
+      <p>
+       DRIZZ merges comedic satire with real blockchain utility. Public weekly comics are free for all, while exclusive continued storylines are reserved for DRIZZ token holders via wallet-based token verification or gated access mechanisms, airdrops, or NFT distributions.
+      </p>
+      <h3 class="dogma-subhead">
+       Security &amp; Transparency
+      </h3>
+      <p>
+       DRIZZ ensures secure Web3 authentication, liquidity locking, and team vesting schedules for transparency and long-term trust.
+      </p>
+      <h3 class="dogma-subhead">
+       Roadmap
+      </h3>
+      <ul>
+       <li>
+        <strong>
+         Phase 1:
+        </strong>
+        Token launch &amp; community growth
+       </li>
+       <li>
+        <strong>
+         Phase 2:
+        </strong>
+        Exclusive comic airdrops
+       </li>
+       <li>
+        <strong>
+         Phase 3:
+        </strong>
+        Transition to NFTs &amp; governance
+       </li>
+      </ul>
+      <h3>
+       Meet the Team
+      </h3>
+      <div style="text-align: center; margin-bottom: 20px;">
+       <img alt="DRIZZ and 'Kick'" src="https://raw.githubusercontent.com/DrizzCoin/WWDD-Coin-Site/main/DRIZZ_and_KICK_resized.png" style="max-width: 65%; border-radius: 10px;"/>
+       <p>
+        Meet DRIZZ, the confident and witty Chief of a government agency, and his loyal Deputy Dog, “Kick.” Together, they embody the spirit of humor, resistance, and community that defines the DRIZZ memecoin.
+       </p>
       </div>
+      <h3 class="dogma-subhead">
+       Legal Disclaimer
+      </h3>
+      <p>
+       DRIZZ is not affiliated with or endorsed by any government agency or individual. A portion of funds may support legal aid initiatives, subject to available resources, operational priorities, and compliance with applicable laws. Participation involves risk. Please consult legal or financial professionals before proceeding.
+      </p>
+     </div>
     </div>
-
     <!-- Shop Overlay -->
-    <div id="drizz-shop-overlay" class="overlay">
-      <div class="overlay-content">
-        <button class="close-button" onclick="closeShop()">&times;</button>
-        <h2 style="text-align:center;">DRIZZ Merch Store</h2>
-        <p style="text-align:center; font-size:1.2em; color:#fff;">Coming Soon...</p>
-      </div>
+    <div class="overlay" id="drizz-shop-overlay">
+     <div class="overlay-content">
+      <button class="close-button" onclick="closeShop()">
+       ×
+      </button>
+      <h2 style="text-align:center;">
+       DRIZZ Merch Store
+      </h2>
+      <p style="text-align:center; font-size:1.2em; color:#fff;">
+       Coming Soon...
+      </p>
+     </div>
     </div>
-
     <!-- View DRIZZ Dogma Button -->
-    <button id="show-dogma"
-      style="margin-top:10px; padding:10px 20px; background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    <button id="show-dogma" style="margin-top:10px; padding:10px 20px; background: linear-gradient(90deg, #1e3a8a, #2563eb);
              color:white; border:none; border-radius:10px; box-shadow:0px 4px 6px rgba(0,0,0,0.2);
              font-size:1em; cursor:pointer;">
-      View DRIZZ Dogma
+     View DRIZZ Dogma
     </button>
+   </div>
   </header>
-
   <script>
-    // Show/Hide DRIZZ Dogma overlay
+   // Show/Hide DRIZZ Dogma overlay
     const dogmaOverlay = document.getElementById('drizz-dogma-overlay');
     const showDogmaBtn = document.getElementById('show-dogma');
     function closeDogma() {
@@ -349,115 +467,152 @@
       shopOverlay.style.display = 'none';
     }
   </script>
-
   <!-- MAIN CONTENT -->
   <div class="container">
-
-    <!-- ABOUT US SECTION -->
-    <section id="about-section" style="padding:4em; background:rgba(0,0,0,0.85);">
-      <h2>About Us</h2>
-      <p style="font-size:1.2em;">
-        DRIZZ was created as a symbol for those who don't 
-        <a href='https://www.dictionary.com/browse/capitulate'
-           style='color:#d4a373; font-weight:bold; text-decoration:none;' target='_blank'>
-           capitulate.
-        </a>
-      </p>
-      <img src="Designer.png" alt="WWDD Coin">
-      <p style="font-family:'Oswald',sans-serif; font-size:1.5em; font-style:italic; color:#fff;
+   <!-- ABOUT US SECTION -->
+   <section id="about-section" style="padding:4em; background:rgba(0,0,0,0.85);">
+    <h2>
+     About Us
+    </h2>
+    <p style="font-size:1.2em;">
+     DRIZZ was created as a symbol for those who don't
+     <a href="https://www.dictionary.com/browse/capitulate" style="color:#d4a373; font-weight:bold; text-decoration:none;" target="_blank">
+      capitulate.
+     </a>
+    </p>
+    <img alt="WWDD Coin" src="Designer.png"/>
+    <p style="font-family:'Oswald',sans-serif; font-size:1.5em; font-style:italic; color:#fff;
                 text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
-        <strong>You Either Stand for Something or Fall for Anything</strong>
-      </p>
-    </section>
-
-    <!-- WHY DRIZZ? SECTION -->
-    <section id="why-drizz">
-      <h2>Why DRIZZ?</h2>
-      <p>This project is more than a memecoin—it’s a stand for the 340 million.</p>
-      <p>Fight Tyranny. Fight Authoritarism. Fight Autocracy</p>
-      <p style="font-family:'Oswald',sans-serif; font-size:1.5em; font-weight:bold; color:#fff;
+     <strong>
+      You Either Stand for Something or Fall for Anything
+     </strong>
+    </p>
+   </section>
+   <!-- WHY DRIZZ? SECTION -->
+   <section id="why-drizz">
+    <h2>
+     Why DRIZZ?
+    </h2>
+    <p>
+     This project is more than a memecoin—it’s a stand for the 340 million.
+    </p>
+    <p>
+     Fight Tyranny. Fight Authoritarism. Fight Autocracy
+    </p>
+    <p style="font-family:'Oswald',sans-serif; font-size:1.5em; font-weight:bold; color:#fff;
                 text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
-        F--- Off Oligarchs
-      </p>
-      <!-- Join the Movement Button (Blue BG, White Text) -->
-      <a href="#contact" class="button">Join the Movement</a>
-
-      <!-- DRIZZ Token Stats -->
-      <div id="token-stats"
-           style="background:rgba(0,0,0,0.5); padding:40px 20px; text-align:center; margin-top:40px; border-radius:10px;">
-        <h2 style="color:#d4a373; font-size:2em;">DRIZZ Token Stats</h2>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:30px;">
-          <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
-            <h3 style="color:#fff;">🪙 Max Supply</h3>
-            <p style="font-size:1.5em; font-weight:bold; color:#d4a373;">340,000,000 DRIZZ</p>
-          </div>
-          <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
-            <h3 style="color:#fff;">🔄 In Circulation</h3>
-            <p style="font-size:1.5em; font-weight:bold;">0 DRIZZ</p>
-          </div>
-          <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
-            <h3 style="color:#fff;">📦 Transactions</h3>
-            <p style="font-size:1.5em; font-weight:bold;">0</p>
-          </div>
-          <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
-            <h3 style="color:#fff;">👛 Wallet Holders</h3>
-            <p style="font-size:1.5em; font-weight:bold;">0</p>
-          </div>
-        </div>
-        <p style="margin-top:20px; font-style:italic; color:#999;">
-          Live stats will update after token is deployed on Solana.
-        </p>
+     F--- Off Oligarchs
+    </p>
+    <!-- Join the Movement Button (Blue BG, White Text) -->
+    <a class="button" href="#contact">
+     Join the Movement
+    </a>
+    <!-- DRIZZ Token Stats -->
+    <div id="token-stats" style="background:rgba(0,0,0,0.5); padding:40px 20px; text-align:center; margin-top:40px; border-radius:10px;">
+     <h2 style="color:#d4a373; font-size:2em;">
+      DRIZZ Token Stats
+     </h2>
+     <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:30px;">
+      <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
+       <h3 style="color:#fff;">
+        🪙 Max Supply
+       </h3>
+       <p style="font-size:1.5em; font-weight:bold; color:#d4a373;">
+        340,000,000 DRIZZ
+       </p>
       </div>
-    </section>
-
-    <!-- CONNECT WITH US -->
-    <section class="social">
-      <h2>Connect with Us</h2>
-      <p>Follow us for the latest updates and announcements:</p>
-      <a href="https://x.com/WWDD_DRIZZ" target="_blank">Twitter (X)</a>
-    </section>
-
-    <!-- CONTACT DRIZZ -->
-    <section id="contact">
-      <h2>Contact DRIZZ</h2>
-      <p>Questions, feedback, or ideas? Shoot us a message below.</p>
-      <form action="https://formsubmit.co/support@drizz.io" method="POST" style="max-width:500px; margin:20px auto;">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://www.drizz.io/thank-you.html">
-        <label for="name" style="display:block; margin-bottom:5px;">Name</label>
-        <input type="text" id="name" name="name" required
-               style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:none;">
-        <label for="email" style="display:block; margin-bottom:5px;">Email</label>
-        <input type="email" id="email" name="email" required
-               style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:none;">
-        <label for="message" style="display:block; margin-bottom:5px;">Message</label>
-        <textarea id="message" name="message" rows="6" required
-                  style="width:100%; padding:10px; border-radius:5px; border:none;"></textarea>
-        <button type="submit" class="button" style="margin-top:10px;">Send</button>
-      </form>
-    </section>
-
-    <!-- COMIC VIEWER -->
-    <section id="comics" 
-         style="background: rgba(0,0,0,0.6); padding:2em; margin:2em auto; border-radius:10px;">
-    <h2 style="color: #d4a373;">📖 Comic Viewer • Free Access</h2>
-
+      <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
+       <h3 style="color:#fff;">
+        🔄 In Circulation
+       </h3>
+       <p style="font-size:1.5em; font-weight:bold;">
+        0 DRIZZ
+       </p>
+      </div>
+      <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
+       <h3 style="color:#fff;">
+        📦 Transactions
+       </h3>
+       <p style="font-size:1.5em; font-weight:bold;">
+        0
+       </p>
+      </div>
+      <div style="background:#1a1a1a; padding:20px 30px; border-radius:10px; border:1px solid #444;">
+       <h3 style="color:#fff;">
+        👛 Wallet Holders
+       </h3>
+       <p style="font-size:1.5em; font-weight:bold;">
+        0
+       </p>
+      </div>
+     </div>
+     <p style="margin-top:20px; font-style:italic; color:#999;">
+      Live stats will update after token is deployed on Solana.
+     </p>
+    </div>
+   </section>
+   <!-- CONNECT WITH US -->
+   <section class="social">
+    <h2>
+     Connect with Us
+    </h2>
+    <p>
+     Follow us for the latest updates and announcements:
+    </p>
+    <a href="https://x.com/WWDD_DRIZZ" target="_blank">
+     Twitter (X)
+    </a>
+   </section>
+   <!-- CONTACT DRIZZ -->
+   <section id="contact">
+    <h2>
+     Contact DRIZZ
+    </h2>
+    <p>
+     Questions, feedback, or ideas? Shoot us a message below.
+    </p>
+    <form action="https://formsubmit.co/support@drizz.io" method="POST" style="max-width:500px; margin:20px auto;">
+     <input name="_honey" style="display:none" type="text"/>
+     <input name="_captcha" type="hidden" value="false"/>
+     <input name="_next" type="hidden" value="https://www.drizz.io/thank-you.html"/>
+     <label for="name" style="display:block; margin-bottom:5px;">
+      Name
+     </label>
+     <input id="name" name="name" required="" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:none;" type="text"/>
+     <label for="email" style="display:block; margin-bottom:5px;">
+      Email
+     </label>
+     <input id="email" name="email" required="" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px; border:none;" type="email"/>
+     <label for="message" style="display:block; margin-bottom:5px;">
+      Message
+     </label>
+     <textarea id="message" name="message" required="" rows="6" style="width:100%; padding:10px; border-radius:5px; border:none;"></textarea>
+     <button class="button" style="margin-top:10px;" type="submit">
+      Send
+     </button>
+    </form>
+   </section>
+   <!-- COMIC VIEWER -->
+   <section id="comics" style="background: rgba(0,0,0,0.6); padding:2em; margin:2em auto; border-radius:10px;">
+    <h2 style="color: #d4a373;">
+     📖 Comic Viewer • Free Access
+    </h2>
     <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px;">
-    <div style="width:300px; background:#1a1a1a; border-radius:10px; padding:10px;">
-      <img src="images/comic-strip-001.jpg" alt="Comic Strip 001" style="width:100%; border-radius:6px;">
+     <div style="width:300px; background:#1a1a1a; border-radius:10px; padding:10px;">
+      <img alt="Comic Strip 001" src="images/comic-strip-001.jpg" style="width:100%; border-radius:6px;"/>
+     </div>
+     <div style="width:300px; background:#1a1a1a; border-radius:10px; padding:10px;">
+      <img alt="Comic Strip 002" src="images/comic-strip-002.jpg" style="width:100%; border-radius:6px;"/>
+     </div>
     </div>
-    <div style="width:300px; background:#1a1a1a; border-radius:10px; padding:10px;">
-      <img src="images/comic-strip-002.jpg" alt="Comic Strip 002" style="width:100%; border-radius:6px;">
-    </div>
-   </div>
-
-   <div style="width:300px; background:#222; border:2px dashed #d4a373; border-radius:10px; padding:20px; margin: 40px auto 0;">
-    <h3 style="margin-top: 0; color:#d4a373;">💥 Unlock Exclusive Comics 🔐</h3>
-    <p style="color: #ccc;">Connect your wallet to access token-gated comic strips.</p> 
-  </p>
-    <wallet-multi-button
-      style="
+    <div style="width:300px; background:#222; border:2px dashed #d4a373; border-radius:10px; padding:20px; margin: 40px auto 0;">
+     <h3 style="margin-top: 0; color:#d4a373;">
+      💥 Unlock Exclusive Comics 🔐
+     </h3>
+     <p style="color: #ccc;">
+      Connect your wallet to access token-gated comic strips.
+     </p>
+     <wallet-multi-button style="
         margin-top: 15px;
         padding: 10px 20px;
         background-color: #d4a373;
@@ -467,112 +622,112 @@
         border-radius: 8px;
         font-size: 1em;
         cursor: pointer;
-      "
-    >
+      ">
       Connect Wallet
-    </wallet-multi-button>
-  </div>
-  
-    </section>
-
-        
-    </section>
-
-    <!-- LEGAL DISCLAIMER -->
-    <section id="disclaimer">
-      <div>
-        <h2>Legal Disclaimer</h2>
-        <p>DRIZZ is not affiliated with or endorsed by any government agency or individual. 
+     </wallet-multi-button>
+    </div>
+   </section>
+   <!-- LEGAL DISCLAIMER -->
+   <section id="disclaimer">
+    <div>
+     <h2>
+      Legal Disclaimer
+     </h2>
+     <p>
+      DRIZZ is not affiliated with or endorsed by any government agency or individual. 
            A portion of funds may support legal aid initiatives, subject to available resources, 
            operational priorities, and compliance with applicable laws. Participation involves risk. 
-           Please consult legal or financial professionals before proceeding.</p>
-      </div>
-    </section>
-
-  </div><!-- /.container -->
-
+           Please consult legal or financial professionals before proceeding.
+     </p>
+    </div>
+   </section>
+  </div>
+  <!-- /.container -->
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 WWDD. Built on Solana. All rights reserved.</p>
-    <a href="terms-of-service.html"
-       style="display:inline-block; margin-top:10px; padding:10px 20px; background:#d4a373;
+   <p>
+    © 2025 WWDD. Built on Solana. All rights reserved.
+   </p>
+   <a href="terms-of-service.html" style="display:inline-block; margin-top:10px; padding:10px 20px; background:#d4a373;
               color:#000; font-weight:bold; text-decoration:none; border-radius:8px;">
-      View Terms of Service
-    </a>
-    <a href="DRIZZ_Tokenomics_Utility_Overview.pdf"
-       style="display:inline-block; margin-top:10px; margin-left: 10px; padding:10px 20px; background:#d4a373;
+    View Terms of Service
+   </a>
+   <a href="DRIZZ_Tokenomics_Utility_Overview.pdf" style="display:inline-block; margin-top:10px; margin-left: 10px; padding:10px 20px; background:#d4a373;
           color:#000; font-weight:bold; text-decoration:none; border-radius:8px;">
-      Tokenomics PDF
-    </a>
+    Tokenomics PDF
+   </a>
   </footer>
-
   <!-- Solana Web3.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js"></script>
-  <script>
-    // Adjust these as needed
-    const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjkSRcJLPXxcSH";
-    const THRESHOLD = 250;
-
-    // Multi-wallet connect + robust gating
-    async function connectWallet() {
-  
-       ;
-        }
-
-        // Connect
-        const resp = await selectedWallet.connect();
-        const walletAddress = resp.publicKey.toString();
-
-        // Check DRIZZ token balance
-        const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
-        const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
-          new solanaWeb3.PublicKey(walletAddress),
-          {
-            programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
-          }
-        );
-
-        const drizzAccount = tokenAccounts.value.find(acc =>
-          acc.account.data.parsed.info.mint === TOKEN_ADDRESS
-        );
-        const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
-
-        if (amount >= THRESHOLD) {
-          alert("✅ Access granted!");
-        } else {
-          // Show Access Blocker overlay if below threshold
-          document.getElementById('access-blocker').style.display = 'flex';
-        }
-      } catch (error) {
-        console.error("Connection failed:", error);
-        alert("Failed to connect wallet.");
-      }
-    }
-
-    // If user doesn't meet threshold, direct them to your "buy DRIZZ" page
-    function redirectUser() {
-      window.location.href = "https://buydrizz.com"; // change as needed
-    }
+  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.88.2/lib/index.iife.min.js">
   </script>
-
+  <script type="module">
+   const TOKEN_ADDRESS = "8rSczAV2xeVQNGHs12WqaAK5LJUVDPjKSRcjLPXxcSH";
+    const THRESHOLD = 250;
+  
+    window.addEventListener("load", async () => {
+      // Wait a little in case wallet takes time to inject
+      setTimeout(async () => {
+        const provider = window.xnft?.solana || window.solana;
+  
+        if (!provider || !provider.isConnected || !provider.publicKey) {
+          console.warn("Wallet not connected.");
+          document.getElementById('access-blocker')?.style?.display = 'flex';
+          return;
+        }
+  
+        try {
+          const walletAddress = provider.publicKey.toString();
+  
+          const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
+  
+          const tokenAccounts = await connection.getParsedTokenAccountsByOwner(
+            new solanaWeb3.PublicKey(walletAddress),
+            {
+              programId: new solanaWeb3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA")
+            }
+          );
+  
+          const drizzAccount = tokenAccounts.value.find(
+            acc => acc.account.data.parsed.info.mint === TOKEN_ADDRESS
+          );
+  
+          const amount = drizzAccount?.account?.data?.parsed?.info?.tokenAmount?.uiAmount || 0;
+  
+          if (amount >= THRESHOLD) {
+            console.log(`✅ Access granted. DRIZZ Balance: ${amount}`);
+            // Hide access blocker if one exists
+            document.getElementById('access-blocker')?.style?.display = 'none';
+          } else {
+            console.warn(`⛔ Access denied. DRIZZ Balance: ${amount}`);
+            document.getElementById('access-blocker')?.style?.display = 'flex';
+          }
+        } catch (err) {
+          console.error("DRIZZ verification failed:", err);
+          document.getElementById('access-blocker')?.style?.display = 'flex';
+        }
+      }, 500); // small delay to ensure wallet loads
+    });
+  </script>
   <!-- Access Blocker Overlay -->
-  <div id="access-blocker"
-       style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-              background: rgba(0,0,0,0.8); color: #fff; z-index: 10000;
-              align-items: center; justify-content: center;">
-    <div style="text-align: center;">
-      <h2>Access Denied</h2>
-      <p>You must have at least 25 DRIZZ tokens to access this content.</p>
-      <button onclick="redirectUser()"
-              style="padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
-                     background-color: #d4a373; color: #000;">
-        Learn More
-      </button>
-    </div>
+  <div id="access-blocker" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+       background: rgba(0,0,0,0.8); color: #fff; z-index: 10000;
+       align-items: center; justify-content: center;">
+   <div style="text-align: center;">
+    <h2>
+     Access Denied 🔒
+    </h2>
+    <p>
+     You must hold at least 250 DRIZZ tokens to unlock this content.
+    </p>
+    <a href="https://raydium.io/swap/?input=sol&amp;output=8rSczAV2xeVQNGHs1l2WqaAK5LJUVDPjkSRcJLPXxcSH&amp;fixed=output&amp;amount=250" style="display: inline-block; margin-top: 15px; padding: 10px 20px;
+         background-color: #d4a373; border-radius: 8px; color: #000;
+         font-weight: bold; text-decoration: none;" target="_blank">
+     🚀 Buy 250 DRIZZ on Raydium
+    </a>
+   </div>
   </div>
-
-
-<!-- Solana Wallet Adapter SDK - ESM Modules -->
-<script type="module" src="./wallet-adapter.js"></script>
-</body>
+  <!-- Solana Wallet Adapter SDK - ESM Modules -->
+  <script src="./wallet-adapter.js" type="module">
+  </script>
+ </body>
 </html>
