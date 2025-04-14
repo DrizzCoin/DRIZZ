@@ -43,7 +43,7 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
         <section style={{ borderTop: '2px solid #00ff00', paddingTop: '1em' }}>
           <h2>📘 Introduction</h2>
           <p>
-            Welcome to the world of <strong>DRIZZ</strong>, the memecoin with a twist. Combining the humor of satirical comics with the resistance of blockchain, DRIZZ is your ticket to a decentralized future—one comic at a time.
+            Welcome to the world of DRIZZ , the memecoin with a twist. Combining the humor of satirical comics with the innovation of blockchain technology, DRIZZ is here to disrupt the norm. Born from the chaos of modern politics and social commentary, DRIZZ represents not just a token, but a movement. With its iconic characters, DRIZZ (a witty Chief of a government agency) and his loyal Deputy Dog, “Kick,” this memecoin is ready to bring laughs, utility, and a sense of community to its holders.
           </p>
         </section>
 
