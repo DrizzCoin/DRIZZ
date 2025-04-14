@@ -80,7 +80,7 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
 
         <section style={{ textAlign: 'center', marginTop: '1.5em' }}>
           <a
-            href="/docs/DRIZZ_Tokenomics_Utility_Overview.pdf"
+            href="/public/docs/DRIZZ_Tokenomics_Utility_Overview.pdf"
             download
             style={{
               padding: '12px 24px',
