@@ -17,14 +17,14 @@ export default function Home() {
   const [showGameFi, setShowGameFi] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
 
-  const { connect, publicKey } = useWallet();
-
   useEffect(() => {
-    // Ensures we're on the client before rendering anything wallet-related
-    setIsClient(true);
+    setIsClient(true); // This ensures the code below only runs on client
   }, []);
 
-  if (!isClient) return null; // Optional: show loading spinner here
+  if (!isClient) return null; // Optional: add loading here
+
+  // ✅ Now it's safe to call useWallet
+  const { connect, publicKey } = useWallet();
 
   return (
     <>

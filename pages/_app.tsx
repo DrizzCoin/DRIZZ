@@ -1,23 +1,33 @@
-// pages/_app.tsx
-import '../styles/global.css';
-import type { AppProps } from 'next/app';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
-import { clusterApiUrl } from '@solana/web3.js';
-import { useMemo } from 'react';
+// _app.tsx
+import '@/styles/globals.css'
+import type { AppProps } from 'next/app'
+import dynamic from 'next/dynamic'
+import {
+  ConnectionProvider,
+  WalletProvider
+} from '@solana/wallet-adapter-react'
+import {
+  PhantomWalletAdapter,
+  AlphaWalletAdapter,
+  SolflareWalletAdapter,
+} from '@solana/wallet-adapter-wallets'
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
+import { useMemo } from 'react'
+import { clusterApiUrl } from '@solana/web3.js'
 
-// Default styles for the wallet modal
-import '@solana/wallet-adapter-react-ui/styles.css';
+require('@solana/wallet-adapter-react-ui/styles.css')
 
 export default function App({ Component, pageProps }: AppProps) {
-  const network = 'mainnet-beta'; // or 'devnet', 'testnet'
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const endpoint = process.env.NEXT_PUBLIC_SOLANA_RPC_URL || clusterApiUrl('mainnet-beta')
 
   const wallets = useMemo(
-    () => [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
+    () => [
+      new PhantomWalletAdapter(),
+      new AlphaWalletAdapter(),
+      new SolflareWalletAdapter()
+    ],
     []
-  );
+  )
 
   return (
     <ConnectionProvider endpoint={endpoint}>
@@ -27,5 +37,5 @@ export default function App({ Component, pageProps }: AppProps) {
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
-  );
+  )
 }
