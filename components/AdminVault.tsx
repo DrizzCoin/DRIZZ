@@ -2,9 +2,22 @@ import React, { useEffect, useState } from 'react';
 import AdminComicCard from '@/components/AdminComicCard';
 import MerchCard from '@/components/MerchCard';
 
+// Define the data types
+interface Comic {
+  title: string;
+  image: string;
+  date: string;
+}
+
+interface Merch {
+  title: string;
+  image: string;
+  price: string;
+}
+
 const AdminVault = () => {
-  const [comics, setComics] = useState([]);
-  const [merch, setMerch] = useState([]);
+  const [comics, setComics] = useState<Comic[]>([]);
+  const [merch, setMerch] = useState<Merch[]>([]);
 
   useEffect(() => {
     fetch('/api/comics')
@@ -44,7 +57,9 @@ const AdminVault = () => {
 
       <section style={{ marginTop: '2em' }}>
         <h3>🗃️ Archived Comics</h3>
-        {comics.length === 0 ? <p>No comics found.</p> : (
+        {comics.length === 0 ? (
+          <p>No comics found.</p>
+        ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1em' }}>
             {comics.map((comic, index) => (
               <AdminComicCard
@@ -61,7 +76,9 @@ const AdminVault = () => {
 
       <section style={{ marginTop: '3em' }}>
         <h3>🧢 Exclusive Merch</h3>
-        {merch.length === 0 ? <p>No merch found.</p> : (
+        {merch.length === 0 ? (
+          <p>No merch found.</p>
+        ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1em' }}>
             {merch.map((item, index) => (
               <MerchCard
