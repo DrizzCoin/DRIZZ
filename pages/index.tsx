@@ -1,8 +1,8 @@
-// pages/index.tsxDownload
+// pages/index.tsx
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import ComicViewer from '@/components/ComicViewer';
 import DrizzStatsLive from '@/components/DrizzStatsLive';
@@ -15,7 +15,16 @@ const FORM_ACTION_URL = process.env.NEXT_PUBLIC_FORM_SUBMIT_URL || "";
 export default function Home() {
   const [showDogma, setShowDogma] = useState(false);
   const [showGameFi, setShowGameFi] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false);
+
   const { connect, publicKey } = useWallet();
+
+  useEffect(() => {
+    // Ensures we're on the client before rendering anything wallet-related
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null; // Optional: show loading spinner here
 
   return (
     <>
