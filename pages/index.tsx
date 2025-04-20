@@ -1,29 +1,27 @@
-// pages/index.tsx
+// pages/index.tsxDownload
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
 import Image from 'next/image';
-import DrizzStatsLive from '@/components/DrizzStatsLive';
-import ComicViewer from '@/components/ComicViewer';
-import ComicGrid from '@/components/ComicGrid';
-import DrizzVerificationBanner from '@/components/DrizzVerificationBanner';
+import Link from 'next/link';
 import { useState } from 'react';
-import DogmaModal from '@/components/DogmaModal';
 import dynamic from 'next/dynamic';
+import ComicViewer from '@/components/ComicViewer';
+import DrizzStatsLive from '@/components/DrizzStatsLive';
+import GameFiModal from '@/components/GameFiModal';
+import DogmaModal from '@/components/DogmaModal';
+import { useWallet } from '@solana/wallet-adapter-react';
 
-const WalletMultiButtonDynamic = dynamic(
-  () => import('@solana/wallet-adapter-react-ui').then((mod) => mod.WalletMultiButton),
-  { ssr: false }
-);
+const FORM_ACTION_URL = process.env.NEXT_PUBLIC_FORM_SUBMIT_URL || "";
 
 export default function Home() {
   const [showDogma, setShowDogma] = useState(false);
+  const [showGameFi, setShowGameFi] = useState<boolean>(false);
+  const { connect, publicKey } = useWallet();
 
   return (
     <>
       <Head>
         <title>WWDD - What Would Drizz Do</title>
-        <meta name="description" content="DRIZZ Memecoin Website" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="The official DRIZZ token site." />
       </Head>
 
       <video
@@ -31,84 +29,323 @@ export default function Home() {
         muted
         loop
         playsInline
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: -1
-        }}
+        className="background-video"
       >
-        <source src="/bg-map.webm" type="video/webm" />
-        <source src="/bg-map.mp4" type="video/mp4" />
+        <source src="/videos/bg-map.webm" type="video/webm" />
+        <source src="/videos/bg-map.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
 
-      <main className="main-wrapper" style={{
-        fontFamily: 'Oswald, sans-serif',
-        color: '#fff',
-        textAlign: 'center',
-        paddingBottom: '4em'
-      }}>
+      <main className="main-wrapper" style={{ fontFamily: 'Oswald, sans-serif', color: '#fff', textAlign: 'center', paddingBottom: '4em' }}>
         <header style={{
           padding: '1em 0',
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center',
-          position: 'relative'
+          position: 'sticky',
+          top: 0,
+          background: '#111',
+          zIndex: 1000
         }}>
-          <h1 style={{ fontSize: '2.2em', marginBottom: '0.2em' }}>
-            WWDD - What Would Drizz Do
-          </h1>
+          <h1 style={{ fontSize: '2.2em', marginBottom: '0.2em' }}>WWDD - What Would Drizz Do</h1>
           <nav>
             <a href="#about-section" style={{ margin: '0 1em', color: '#fff' }}>About Us</a>
             <a href="#join-section" style={{ margin: '0 1em', color: '#fff' }}>Join Us</a>
-            <a href="#shop-section" style={{ margin: '0 1em', color: '#fff' }}>Shop 🛒</a>
+            <Link href="/shop" style={{ margin: '0 1em', color: '#fff' }}>
+              Shop 🛒
+            </Link>
+            <a onClick={() => setShowGameFi(true)} style={{ margin: '0 1em', color: '#fff', cursor: 'pointer' }}>GameFi</a>
             <a href="#disclaimer-section" style={{ margin: '0 1em', color: '#fff' }}>Disclaimer</a>
           </nav>
+          <button
+            onClick={() => setShowDogma(true)}
+            style={{
+              padding: '10px 20px',
+              background: 'linear-gradient(90deg, #1e3a8a, #2563eb)',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '10px',
+              boxShadow: '0px 4px 6px rgba(0,0,0,0.85)',
+              fontSize: '1em',
+              cursor: 'pointer',
+              marginTop: '10px'
+            }}
+          >
+            View DRIZZ Dogma
+          </button>
           <div style={{ position: 'absolute', right: '20px', top: '20px' }}>
-            <WalletMultiButtonDynamic />
-          </div>
-          <div style={{ marginTop: '1em' }}>
             <button
-              onClick={() => setShowDogma(true)}
+              id="header-wallet-button"
               style={{
-                padding: '10px 20px',
-                background: '#007bff',
-                color: '#fff',
+                position: 'absolute',
+                right: '20px',
+                top: '20px',
+                backgroundColor: '#f5b84b',
+                color: '#000',
+                padding: '0.5em 1.2em',
+                borderRadius: '8px',
+                fontSize: '.75em',
                 border: 'none',
-                borderRadius: '10px',
-                boxShadow: '0px 4px 6px rgba(0,0,0,0.2)',
-                fontSize: '1em',
-                fontWeight: 600,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+                transition: 'background 0.3s'
               }}
-              onMouseOver={(e) => e.currentTarget.style.background = '#0069d9'}
-              onMouseOut={(e) => e.currentTarget.style.background = '#007bff'}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#d4a373')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#f5b84b')}
             >
-              View DRIZZ Dogma
+              Connect Wallet
             </button>
           </div>
         </header>
 
-        <section id="about-section" style={{ background: 'rgba(0, 0, 0, 0.85)', padding: '4em', maxWidth: '900px', margin: '0 auto' }}>
-          <Image 
-            src="/drizz-coin.png" 
-            alt="DRIZZ Coin Hero" 
-            width={420} 
-            height={420} 
-            priority 
-            style={{ margin: '1em auto' }}
+        <section
+          id="about-section"
+          style={{
+            padding: '4em',
+            background: 'rgba(0, 0, 0, 0.85)',
+            borderRadius: '0',
+            maxWidth: '500px',
+            margin: '0 auto',
+            textAlign: 'center',
+          }}
+        >
+          <h2
+            style={{
+              color: '#fff',
+              fontSize: '1.5em',
+              fontWeight: 'bold',
+              marginBottom: '1em',
+            }}
+          >
+            About Us
+          </h2>
+          <p style={{ fontSize: '1em', color: '#fff' }}>
+            DRIZZ was created as a symbol for those who don't{' '}
+            <a
+              href="https://www.dictionary.com/browse/capitulate"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#d4a373',
+                fontWeight: 'bold',
+                textDecoration: 'none',
+              }}
+            >
+              capitulate.
+            </a>
+          </p>
+          <img
+            src="/images/Designer.png"
+            alt="WWDD Coin"
+            style={{ width: '450px', margin: '2em auto', display: 'block' }}
           />
-          <h2>About Us</h2>
-          <p style={{ fontSize: '1.2em' }}>DRIZZ was created as a symbol for those who don't <a href="https://www.dictionary.com/browse/capitulate" target="_blank" style={{ color: '#d4aa73', fontWeight: 'bold', textDecoration: 'none' }}>capitulate</a>.</p>
-          <p style={{ fontSize: '1.5em', fontStyle: 'italic', color: '#fff', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}><strong>You Either Stand for Something or Fall for Anything</strong></p>
+          <p
+            style={{
+              fontFamily: 'Oswald, sans-serif',
+              fontSize: '1.2em',
+              fontStyle: 'italic',
+              color: '#fff',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.85)',
+              marginTop: '2em',
+            }}
+          >
+            <strong>You Either Stand for Something or Fall for Anything</strong>
+          </p>
         </section>
 
+        <section
+  id="why-drizz"
+  style={{
+    background: 'rgba(0,0,0,0.85)',
+    padding: '3rem 2rem',
+    margin: '2rem auto',
+    maxWidth: '565px',
+    borderRadius: '0',
+    textAlign: 'center'
+  }}
+>
+  <h2 style={{ color: '#fff', fontSize: '1.75em', fontWeight: 'bold', marginBottom: '1em' }}>
+    Why DRIZZ?
+  </h2>
+
+  <p style={{ color: '#fff', fontSize: '1em', marginBottom: '0.5em' }}>
+    This project is more than a memecoin—it’s a stand for the 340 million.
+  </p>
+  <p style={{ color: '#fff', fontSize: '1em', marginBottom: '0.5em' }}>
+    Fight Tyranny. Fight Authoritarism. Fight Autocracy
+  </p>
+  <p
+    style={{
+      fontFamily: 'Oswald, sans-serif',
+      fontSize: '1.5em',
+      fontWeight: 'bold',
+      color: '#fff',
+      textShadow: '2px 2px 4px rgba(0,0,0,0.99)',
+      marginBottom: '1.5em'
+    }}
+  >
+    F--- Off Oligarchs
+  </p>
+
+  <a
+  href="#contact" // or replace with actual DRIZZ purchase URL
+  style={{
+    display: 'inline-block',
+    backgroundColor: '#2563eb',
+    color: '#fff',
+    padding: '0.75em 1.5em',
+    fontSize: '1em',
+    fontWeight: 'bold',
+    borderRadius: '10px',
+    textDecoration: 'none',
+    boxShadow: '0px 4px 6px rgba(0,0,0,0.2)',
+    transition: 'background-color 0.3s'
+  }}
+  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#1e3a8a')}
+  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#2563eb')}
+>
+  Join the Movement
+</a>
+
+  <div style={{ marginTop: '.85rem' }}>
+  <DrizzStatsLive />
+</div>
+
+</section>
+
+<section
+  id="viewer-section"
+  style={{
+    background: 'rgba(0,0,0,0.85)',
+    padding: '2em',
+    margin: '2em auto',
+    borderRadius: '0',
+    maxWidth: '575px',
+    textAlign: 'center',
+  }}
+>
+  <ComicViewer />
+</section>
+
+
+        <section id="connect" style={{ padding: '2rem 1rem', background: '#000' }}>
+          <h2>Connect with Us</h2>
+          <p>Follow us for the latest updates and announcements:</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+            <a href="https://x.com/DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+              <Image src="/images/x-logo.png" alt="Twitter" width={20} height={20} /> Twitter
+            </a>
+            <a href="https://www.instagram.com/drizz_wwdd/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <Image src="/images/instagram-logo.png" alt="YouTube" width={20} height={20} /> Instagram
+            </a>
+            <a href="https://www.youtube.com/@DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+              <Image src="/images/youtube-logo.png" alt="YouTube" width={20} height={20} /> Youtube
+            </a>
+            <a href="https://discord.com/invite/DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <Image src="/images/discord-logo.png" alt="YouTube" width={20} height={20} /> Discord
+            </a>
+          </div>
+        </section>
+
+        <section id="contact" style={{ padding: '2rem 1rem', background: 'rgba(0, 0, 0, 0.85)', borderRadius: '10px', margin: '2rem auto', maxWidth: '700px' }}>
+          <h2>Contact DRIZZ</h2>
+          <p>Questions, feedback, or ideas? Shoot us a message below.</p>
+          <form
+            action={FORM_ACTION_URL}
+            method="POST"
+            style={{ maxWidth: '400px', margin: '20px auto' }}
+          >
+            <input type="text" name="_honey" style={{ display: 'none' }} />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="/thank-you.html" />
+
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" name="name" required style={inputStyle} />
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" name="email" required style={inputStyle} />
+            <label htmlFor="message">Message</label>
+            <textarea id="message" name="message" rows={6} required style={inputStyle}></textarea>
+            <button type="submit" style={buttonStyle}>Send</button>
+          </form>
+        </section>
+
+        <section id="disclaimer-section" style={{ padding: '2rem 1rem', background: 'rgba(0,0,0,0.85)', borderRadius: '10px', margin: '2rem auto', maxWidth: '700px' }}>
+          <h2 style={{ color: '#d4a373', fontSize: '2em' }}>Legal Disclaimer</h2>
+          <p style={{ fontSize: '.75em', color: '#ccc' }}>
+            DRIZZ is not affiliated with or endorsed by any government agency or individual. A portion of funds may support legal aid initiatives, subject to available resources,
+            operational priorities, and compliance with applicable laws. Participation involves risk. Please consult legal or financial professionals before proceeding.
+          </p>
+        </section>
+
+        <footer style={{ textAlign: 'center', background: '#111', padding: '2rem 1rem', color: '#fff' }}>
+  <p>© 2025 WWDD. Built on Solana. All rights reserved.</p>
+
+  <div style={{ marginTop: '1rem' }}>
+    <a
+      href="/terms-of-service.html"
+      style={{
+        display: 'inline-block',
+        padding: '10px 20px',
+        background: '#d4a373',
+        color: '#000',
+        fontWeight: 'bold',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        marginRight: '10px'
+      }}
+    >
+      View Terms of Service
+    </a>
+
+    <a
+      href="/docs/DRIZZ_Tokenomics%20_Utility_Overview.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: 'inline-block',
+        padding: '10px 20px',
+        background: '#d4a373',
+        color: '#000',
+        fontWeight: 'bold',
+        textDecoration: 'none',
+        borderRadius: '8px'
+      }}
+    >
+      Tokenomics PDF
+    </a>
+  </div>
+</footer>
+
+        {showGameFi && <GameFiModal onClose={() => setShowGameFi(false)} />}
         {showDogma && <DogmaModal onClose={() => setShowDogma(false)} />}
       </main>
     </>
   );
 }
+
+const inputStyle = {
+  width: '100%',
+  padding: '10px',
+  marginBottom: '15px',
+  borderRadius: '5px',
+  border: 'none'
+};
+
+const buttonStyle = {
+  padding: '10px 20px',
+  backgroundColor: '#1d4ed8',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '5px',
+  fontWeight: 'bold',
+  cursor: 'pointer'
+};
+
+const socialLinkStyle = {
+  color: '#3b82f6',
+  margin: '0.5em 0',
+  display: 'inline-block',
+  textDecoration: 'none',
+  fontWeight: 'bold'
+};

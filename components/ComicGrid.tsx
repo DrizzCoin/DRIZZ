@@ -1,28 +1,43 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../utils/supabaseClient';
 
-const ComicGrid: React.FC = () => {
+interface Comic {
+  id: number;
+  title: string;
+  image_url: string;
+  published_at?: string;
+  exclusive: boolean;
+}
+
+export default function ComicViewer() {
+  const [comics, setComics] = useState<Comic[]>([]);
+
+  useEffect(() => {
+    const fetchComics = async () => {
+      const { data, error } = await supabase
+        .from('comics')
+        .select('*')
+        .eq('exclusive', false)
+        .order('published_at', { ascending: false });
+
+      if (error) console.error('Error fetching comics:', error);
+      else setComics(data || []);
+    };
+
+    fetchComics();
+  }, []);
+
   return (
     <div>
-      <h2 style={{ textAlign: 'center', marginBottom: '1em' }}>📚 Comic Archive</h2>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
-        gap: '1em',
-        justifyContent: 'center'
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <Image src="/comics/sample-archive-001.png" alt="Sample Comic" width={220} height={220} />
-          <p><strong>Comic #001</strong><br />04/01/2024</p>
-        </div>
-        <div style={{ textAlign: 'center' }}>
-          <Image src="/comics/sample-archive-002.png" alt="Sample Comic" width={220} height={220} />
-          <p><strong>Comic #002</strong><br />04/08/2024</p>
-        </div>
+      <h2>Public Comics</h2>
+      <div style={{ display: 'grid', gap: '1rem' }}>
+        {comics.map((comic) => (
+          <div key={comic.id}>
+            <img src={comic.image_url} alt={comic.title} style={{ width: '100%' }} />
+            <h3>{comic.title}</h3>
+          </div>
+        ))}
       </div>
-      <p style={{ textAlign: 'center', marginTop: '1em', color: '#aaa' }}>Older comics are stored in the DRIZZ Vault (250+ DRIZZ required).</p>
     </div>
   );
-};
-
-export default ComicGrid;
+}
