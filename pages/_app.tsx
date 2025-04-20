@@ -1,5 +1,5 @@
 // _app.tsx
-import '@/styles/globals.css'
+import '../styles/global.css'
 import type { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 import {
