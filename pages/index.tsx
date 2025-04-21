@@ -256,9 +256,6 @@ export default function Home() {
             <a href="https://www.youtube.com/@DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
               <Image src="/images/youtube-logo.png" alt="YouTube" width={20} height={20} /> Youtube
             </a>
-            <a href="https://discord.com/invite/DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
-            <Image src="/images/discord-logo.png" alt="Discord" width={20} height={20} /> Discord
-            </a>
           </div>
         </section>
 
