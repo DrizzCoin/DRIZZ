@@ -282,8 +282,7 @@ export default function Home() {
         <section id="disclaimer-section" style={{ padding: '2rem 1rem', background: 'rgba(0,0,0,0.85)', borderRadius: '10px', margin: '2rem auto', maxWidth: '700px' }}>
           <h2 style={{ color: '#d4a373', fontSize: '2em' }}>Legal Disclaimer</h2>
           <p style={{ fontSize: '.75em', color: '#ccc' }}>
-            DRIZZ is not affiliated with or endorsed by any government agency or individual. A portion of funds may support legal aid initiatives, subject to available resources,
-            operational priorities, and compliance with applicable laws. Participation involves risk. Please consult legal or financial professionals before proceeding.
+            DRIZZ is not affiliated with or endorsed by any government agency or individual. Participation involves risk. Please consult legal or financial professionals before proceeding.
           </p>
         </section>
 

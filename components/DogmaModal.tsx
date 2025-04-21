@@ -153,10 +153,7 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
           <div style={{ marginTop: '1.5em', background: '#111', padding: '.5em', borderRadius: '10px' }}>
             <h4 style={{ color: '#40ae44', marginBottom: '0.5em' }}>Legal Disclaimer</h4>
             <p style={{ color: '#fff', fontSize: '0.9em' }}>
-              DRIZZ is not affiliated with or endorsed by any government agency or individual.
-              A portion of funds may support legal aid initiatives, subject to available resources,
-              operational priorities, and compliance with applicable laws. Participation involves risk.
-              Please consult legal or financial professionals before proceeding.
+              DRIZZ is not affiliated with or endorsed by any government agency or individual. Participation involves risk. Please consult legal or financial professionals before proceeding.
             </p>
           </div>
         </section>
