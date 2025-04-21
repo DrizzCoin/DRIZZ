@@ -196,9 +196,11 @@ export default function Home() {
   >
     F--- Off Oligarchs
   </p>
-
+  
   <a
-  href="#contact" // or replace with actual DRIZZ purchase URL
+  href="https://tools.smithii.io/launch/DRIZZ:-Don%E2%80%99t-Get-Left"
+  target="_blank"
+  rel="noopener noreferrer"
   style={{
     display: 'inline-block',
     backgroundColor: '#2563eb',
@@ -264,10 +266,11 @@ export default function Home() {
             action="https://formsubmit.co/support@drizz.io"
             method="POST"
             style={{ maxWidth: '400px', margin: '20px auto' }}
-          >
+        >
+
             <input type="text" name="_honey" style={{ display: 'none' }} />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://www.drizz.io/thank-you.html" />
+            <input type="hidden" name="_next" value="/thank-you.html" />
 
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" required style={inputStyle} />
