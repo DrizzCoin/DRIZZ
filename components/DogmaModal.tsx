@@ -105,7 +105,7 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
                           display: 'inline-block'
                         }}
                       >
-                        📥 Download Tokenomics PDF
+                        📥 Download Tokenomics 
                       </a>
                     </td>
                   </tr>

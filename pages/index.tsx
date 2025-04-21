@@ -321,7 +321,7 @@ export default function Home() {
         borderRadius: '8px'
       }}
     >
-      Tokenomics PDF
+      Tokenomics
     </a>
   </div>
 </footer>
