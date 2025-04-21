@@ -127,7 +127,7 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
             <ul>
               <li><strong>Phase 1:</strong> Token launch & community growth</li>
               <li><strong>Phase 2:</strong> Exclusive comic airdrops</li>
-              <li><strong>Phase 3:</strong> Transition to NFTs & governance</li>
+              <li><strong>Phase 3:</strong> Transition to GameFI, Real World Utility, NFTs & governance</li>
             </ul>)
         }].map(({ icon, title, content }) => (
           <section key={title}>
