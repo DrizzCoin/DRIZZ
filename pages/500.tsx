@@ -8,7 +8,7 @@ export default function Custom500() {
       <h1 className="text-4xl font-bold mb-4">500 – Server Error</h1>
 
       <Image
-        src="/images/kick-dog.png"
+        src="/images/kick-dog.jpg"
         alt="Sad dog with 'Kick' collar"
         width={400}
         height={400}
