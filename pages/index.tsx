@@ -261,13 +261,13 @@ export default function Home() {
           <h2>Contact DRIZZ</h2>
           <p>Questions, feedback, or ideas? Shoot us a message below.</p>
           <form
-            action={FORM_ACTION_URL}
+            action="https://formsubmit.co/support@drizz.io"
             method="POST"
             style={{ maxWidth: '400px', margin: '20px auto' }}
           >
             <input type="text" name="_honey" style={{ display: 'none' }} />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="/thank-you.html" />
+            <input type="hidden" name="_next" value="https://www.drizz.io/thank-you.html" />
 
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" required style={inputStyle} />
