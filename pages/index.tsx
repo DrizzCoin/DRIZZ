@@ -196,7 +196,7 @@ export default function Home() {
   >
     F--- Off Oligarchs
   </p>
-  
+
   <a
   href="https://tools.smithii.io/launch/DRIZZ:-Don%E2%80%99t-Get-Left"
   target="_blank"
@@ -248,13 +248,16 @@ export default function Home() {
               <Image src="/images/x-logo.png" alt="Twitter" width={20} height={20} /> Twitter
             </a>
             <a href="https://www.instagram.com/drizz_wwdd/" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
-            <Image src="/images/instagram-logo.png" alt="YouTube" width={20} height={20} /> Instagram
+            <Image src="/images/instagram-logo.png" alt="Instagram" width={20} height={20} /> Instagram
+            </a>
+            <a href="https://www.tiktok.com/@drizz_wwdd" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
+            <Image src="/images/tiktok-logo.png" alt="TikTok" width={20} height={20} /> TikTok
             </a>
             <a href="https://www.youtube.com/@DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
               <Image src="/images/youtube-logo.png" alt="YouTube" width={20} height={20} /> Youtube
             </a>
             <a href="https://discord.com/invite/DRIZZ_WWDD" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
-            <Image src="/images/discord-logo.png" alt="YouTube" width={20} height={20} /> Discord
+            <Image src="/images/discord-logo.png" alt="Discord" width={20} height={20} /> Discord
             </a>
           </div>
         </section>
