@@ -76,16 +76,21 @@ export default function Home() {
                 color: '#fff',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '0.25em', // adds tiny spacing between icon and text
-                textDecoration: 'none'
+                gap: '6px',
+                textDecoration: 'none',
+                height: '100%', // <-- NEW
               }}
             >
               <img
                 src="/images/github-logo.png"
                 alt="GitHub"
-                width={18} // a little smaller helps align better
+                width={18}
                 height={18}
-                style={{ verticalAlign: 'middle' }}
+                style={{
+                  display: 'inline-block',
+                  verticalAlign: 'middle', // <-- CRITICAL
+                  marginBottom: '2px',      // <-- SMALL adjustment
+                }}
               />
               GitHub
             </a>
