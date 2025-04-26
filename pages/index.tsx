@@ -46,55 +46,131 @@ export default function Home() {
       </video>
 
       <main className="main-wrapper" style={{ fontFamily: 'Oswald, sans-serif', color: '#fff', textAlign: 'center', paddingBottom: '4em' }}>
-        <header style={{
-          padding: '1em 0',
+      <header
+        style={{
+          padding: '1em 0.5em',
           display: 'flex',
-          justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center',
           position: 'sticky',
           top: 0,
           background: '#111',
-          zIndex: 1000
-        }}>
-          <h1 style={{ fontSize: '2.2em', marginBottom: '0.2em' }}>WWDD - What Would Drizz Do</h1>
-          <nav>
-            <a href="#about-section" style={{ margin: '0 1em', color: '#fff' }}>About Us</a>
-            <a href="#join-section" style={{ margin: '0 1em', color: '#fff' }}>Join Us</a>
-            <Link href="/shop" style={{ margin: '0 1em', color: '#fff' }}>
-              Shop 🛒
-            </Link>
-            <a onClick={() => setShowGameFi(true)} style={{ margin: '0 1em', color: '#fff', cursor: 'pointer' }}>GameFi</a>
-            <a href="#disclaimer-section" style={{ margin: '0 1em', color: '#fff' }}>Disclaimer</a>
-            {/* GitHub Link */}
-            <a 
-              href="https://github.com/DrizzCoin/DRIZZ"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                margin: '0 1em',
-                color: '#fff',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                textDecoration: 'none',
-                height: '100%', // <-- NEW
-              }}
-            >
-              <img
-                src="/images/github-logo.png"
-                alt="GitHub"
-                width={18}
-                height={18}
+          zIndex: 1000,
+          width: '100%',
+        }}
+      >
+        <h1
+          style={{
+            fontSize: '2em',
+            marginBottom: '0.5em',
+            color: '#fff',
+            textAlign: 'center',
+            lineHeight: 1.2,
+          }}
+        >
+          WWDD - What Would Drizz Do
+        </h1>
+      
+        {/* Navigation */}
+        <nav
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '1em',
+            fontSize: '1rem',
+            width: '100%',
+            maxWidth: '900px',
+          }}
+        >
+          {[
+            { label: 'About Us', href: '#about-section' },
+            { label: 'Join Us', href: '#join-section' },
+            { label: 'Shop 🛒', href: '/shop', isLink: true },
+            { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
+            { label: 'Disclaimer', href: '#disclaimer-section' },
+          ].map(({ label, href, isLink, onClick }) =>
+            isLink ? (
+              <Link
+                key={label}
+                href={href}
                 style={{
-                  display: 'inline-block',
-                  verticalAlign: 'middle', // <-- CRITICAL
-                  marginBottom: '2px',      // <-- SMALL adjustment
+                  color: '#fff',
+                  textDecoration: 'none',
+                  transition: 'color 0.3s, text-shadow 0.3s',
                 }}
-              />
-              GitHub
-            </a>
-          </nav>
+                onMouseEnter={(e) => {
+                  e.target.style.color = '#4f83ff';
+                  e.target.style.textShadow = '0 0 6px #4f83ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = '#fff';
+                  e.target.style.textShadow = 'none';
+                }}
+              >
+                {label}
+              </Link>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                onClick={onClick}
+                style={{
+                  color: '#fff',
+                  textDecoration: 'none',
+                  cursor: onClick ? 'pointer' : 'default',
+                  transition: 'color 0.3s, text-shadow 0.3s',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = '#4f83ff';
+                  e.target.style.textShadow = '0 0 6px #4f83ff';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = '#fff';
+                  e.target.style.textShadow = 'none';
+                }}
+              >
+                {label}
+              </a>
+            )
+          )}
+      
+          {/* GitHub link */}
+          <a
+            href="https://github.com/DrizzCoin/DRIZZ"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.25em',
+              color: '#fff',
+              textDecoration: 'none',
+              transition: 'color 0.3s, text-shadow 0.3s',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.color = '#4f83ff';
+              e.target.style.textShadow = '0 0 6px #4f83ff';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.color = '#fff';
+              e.target.style.textShadow = 'none';
+            }}
+          >
+            <img
+              src="/images/github-logo.png"
+              alt="GitHub"
+              width={18}
+              height={18}
+              style={{
+                display: 'inline-block',
+                verticalAlign: 'middle',
+              }}
+            />
+            <span>GitHub</span>
+          </a>
+        </nav>
           <button
             onClick={() => setShowDogma(true)}
             style={{
