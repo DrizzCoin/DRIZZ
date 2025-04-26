@@ -140,38 +140,40 @@ export default function Home() {
       
           {/* GitHub link */}
           <a
-            href="https://github.com/DrizzCoin/DRIZZ"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.25em',
-              color: '#fff',
-              textDecoration: 'none',
-              transition: 'color 0.3s, text-shadow 0.3s',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.color = '#4f83ff';
-              e.target.style.textShadow = '0 0 6px #4f83ff';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.color = '#fff';
-              e.target.style.textShadow = 'none';
-            }}
-          >
-            <img
-              src="/images/github-logo.png"
-              alt="GitHub"
-              width={18}
-              height={18}
-              style={{
-                display: 'inline-block',
-                verticalAlign: 'middle',
-              }}
-            />
-            <span>GitHub</span>
-          </a>
+  href="https://github.com/DrizzCoin/DRIZZ"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.25em',
+    color: '#fff',
+    textDecoration: 'none',
+    transition: 'color 0.3s, text-shadow 0.3s',
+  }}
+  onMouseEnter={(e) => {
+    const target = e.target as HTMLElement;   // ✅ Fix
+    target.style.color = '#4f83ff';
+    target.style.textShadow = '0 0 6px #4f83ff';
+  }}
+  onMouseLeave={(e) => {
+    const target = e.target as HTMLElement;   // ✅ Fix
+    target.style.color = '#fff';
+    target.style.textShadow = 'none';
+  }}
+>
+  <img
+    src="/images/github-logo.png"
+    alt="GitHub"
+    width={18}
+    height={18}
+    style={{
+      display: 'inline-block',
+      verticalAlign: 'middle',
+    }}
+  />
+  <span>GitHub</span>
+</a>
         </nav>
           <button
             onClick={() => setShowDogma(true)}
