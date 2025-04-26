@@ -66,6 +66,16 @@ export default function Home() {
             </Link>
             <a onClick={() => setShowGameFi(true)} style={{ margin: '0 1em', color: '#fff', cursor: 'pointer' }}>GameFi</a>
             <a href="#disclaimer-section" style={{ margin: '0 1em', color: '#fff' }}>Disclaimer</a>
+            {/* GitHub Link */}
+            <a 
+              href="https://github.com/DrizzCoin/DRIZZ" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ margin: '0 1em', color: '#fff', display: 'inline-flex', alignItems: 'center', gap: '0.5em' }}
+            >
+              <Image src="/images/github-logo.png" alt="GitHub" width={20} height={20} />
+              GitHub
+            </a>
           </nav>
           <button
             onClick={() => setShowDogma(true)}
