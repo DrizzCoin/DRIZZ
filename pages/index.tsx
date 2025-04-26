@@ -101,13 +101,15 @@ export default function Home() {
                   transition: 'color 0.3s, text-shadow 0.3s',
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.color = '#4f83ff';
-                  e.target.style.textShadow = '0 0 6px #4f83ff';
+                  const target = e.target as HTMLElement;
+                  target.style.color = '#4f83ff';
+                  target.style.textShadow = '0 0 6px #4f83ff';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.color = '#fff';
-                  e.target.style.textShadow = 'none';
-                }}
+                  const target = e.target as HTMLElement;
+                  target.style.color = '#fff';
+                  target.style.textShadow = 'none';
+                }}                
               >
                 {label}
               </Link>
