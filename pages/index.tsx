@@ -152,15 +152,17 @@ export default function Home() {
     transition: 'color 0.3s, text-shadow 0.3s',
   }}
   onMouseEnter={(e) => {
-    const target = e.currentTarget as HTMLAnchorElement; // ✅ use currentTarget not target
+    const target = e.currentTarget as HTMLAnchorElement; // ✅ use currentTarget
     target.style.color = '#4f83ff';
     target.style.textShadow = '0 0 6px #4f83ff';
   }}
+  
   onMouseLeave={(e) => {
-    const target = e.currentTarget as HTMLAnchorElement; // ✅ use currentTarget not target
+    const target = e.currentTarget as HTMLAnchorElement; // ✅ use currentTarget
     target.style.color = '#fff';
     target.style.textShadow = 'none';
   }}
+  
 >
   <img
     src="/images/github-logo.png"
