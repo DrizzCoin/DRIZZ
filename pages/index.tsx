@@ -72,11 +72,11 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-              margin: '0 .75em',
+              margin: '0 1em',
               color: '#fff',
               display: 'flex',
               alignItems: 'center',
-              paddingTop: '0.2em' // slight adjustment to align visually with other links
+              paddingTop: '0.18em' // slight adjustment to align visually with other links
             }}
           >
             <img
