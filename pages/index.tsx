@@ -74,9 +74,9 @@ export default function Home() {
               style={{
               margin: '0 1em',
               color: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              paddingTop: '0.25em' // slight adjustment to align visually with other links
+              textDecoration: 'none', // no underline
+              display: 'inline-flex',
+              alignItems: 'center',   // center vertically
             }}
           >
             <img
