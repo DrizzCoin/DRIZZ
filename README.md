@@ -1,7 +1,25 @@
 # DRIZZ 🧠⚡
 
-**DRIZZ** is a meme-powered resistance movement built on the Solana blockchain. It's a project that combines satire, utility, and community to challenge centralized power with creativity and humor.
+"What Would DRIZZ Do?" — is a decentralized meme resistance movement built on Solana.  
+It combines satire, creativity, and blockchain technology to challenge centralized power with humor, token utility, and Web3 access.
 
+Built for those who refuse to capitulate.
+
+---
+
+🪙 Project Overview
+
+DRIZZ is a Solana-based token project designed to merge cultural commentary, GameFi, and tokenized access into a living ecosystem.
+
+The project combines:
+
+- Solana SPL Token creation and metadata registration.
+- Token-Gated Access to premium content, comics, GameFi, and exclusive merchandise.
+- Real-Time Wallet Authentication (Phantom, Solflare, Backpack, WalletConnect).
+- Web3-Integrated Frontend built using React + Next.js 15.
+- GameFi Development (DRIZZvia - Trivia Game with Web3 rewards integration).
+- DAO-Compatible Roadmap for future community governance.
+  
 ---
 
 ## 🧮 Tokenomics
