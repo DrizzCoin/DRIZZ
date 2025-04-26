@@ -1,4 +1,5 @@
-// pages/index.tsx
+// Fixed pages/index.tsx
+
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,16 +15,15 @@ const FORM_ACTION_URL = process.env.NEXT_PUBLIC_FORM_SUBMIT_URL || "";
 
 export default function Home() {
   const [showDogma, setShowDogma] = useState(false);
-  const [showGameFi, setShowGameFi] = useState<boolean>(false);
+  const [showGameFi, setShowGameFi] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // This ensures the code below only runs on client
+    setIsClient(true);
   }, []);
 
-  if (!isClient) return null; // Optional: add loading here
+  if (!isClient) return null;
 
-  // ✅ Now it's safe to call useWallet
   const { connect, publicKey } = useWallet();
 
   return (
@@ -33,151 +33,87 @@ export default function Home() {
         <meta name="description" content="The official DRIZZ token site." />
       </Head>
 
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="background-video"
-      >
+      <video autoPlay muted loop playsInline className="background-video">
         <source src="/videos/bg-map.webm" type="video/webm" />
         <source src="/videos/bg-map.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       <main className="main-wrapper" style={{ fontFamily: 'Oswald, sans-serif', color: '#fff', textAlign: 'center', paddingBottom: '4em' }}>
-      <header
-        style={{
-          padding: '1em 0.5em',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          position: 'sticky',
-          top: 0,
-          background: '#111',
-          zIndex: 1000,
-          width: '100%',
-        }}
-      >
-        <h1
-          style={{
-            fontSize: '2em',
-            marginBottom: '0.5em',
-            color: '#fff',
-            textAlign: 'center',
-            lineHeight: 1.2,
-          }}
-        >
-          WWDD - What Would Drizz Do
-        </h1>
-      
-        {/* Navigation */}
-        <nav
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '1em',
-            fontSize: '1rem',
-            width: '100%',
-            maxWidth: '900px',
-          }}
-        >
-          {[
-            { label: 'About Us', href: '#about-section' },
-            { label: 'Join Us', href: '#join-section' },
-            { label: 'Shop 🛒', href: '/shop', isLink: true },
-            { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
-            { label: 'Disclaimer', href: '#disclaimer-section' },
-          ].map(({ label, href, isLink, onClick }) =>
-            isLink ? (
-              <Link
-                key={label}
-                href={href}
-                style={{
-                  color: '#fff',
-                  textDecoration: 'none',
-                  transition: 'color 0.3s, text-shadow 0.3s',
-                }}
-                onMouseEnter={(e) => {
-                  const target = e.target as HTMLElement;
-                  target.style.color = '#4f83ff';
-                  target.style.textShadow = '0 0 6px #4f83ff';
-                }}
-                onMouseLeave={(e) => {
-                  const target = e.target as HTMLElement;
-                  target.style.color = '#fff';
-                  target.style.textShadow = 'none';
-                }}                
-              >
-                {label}
-              </Link>
-            ) : (
-              <a
-                key={label}
-                href={href}
-                onClick={onClick}
-                style={{
-                  color: '#fff',
-                  textDecoration: 'none',
-                  cursor: onClick ? 'pointer' : 'default',
-                  transition: 'color 0.3s, text-shadow 0.3s',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.color = '#4f83ff';
-                  e.target.style.textShadow = '0 0 6px #4f83ff';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.color = '#fff';
-                  e.target.style.textShadow = 'none';
-                }}
-              >
-                {label}
-              </a>
-            )
-          )}
-      
-          {/* GitHub link */}
-          <a
-  href="https://github.com/DrizzCoin/DRIZZ"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '0.25em',
-    color: '#fff',
-    textDecoration: 'none',
-    transition: 'color 0.3s, text-shadow 0.3s',
-  }}
-  onMouseEnter={(e) => {
-    const target = e.currentTarget as HTMLElement;
-    target.style.color = '#4f83ff';
-    target.style.textShadow = '0 0 6px #4f83ff';
-  }}
-  
-  onMouseLeave={(e) => {
-    const target = e.currentTarget as HTMLElement;
-    target.style.color = '#fff';
-    target.style.textShadow = 'none';
-  }}
-  
->
-  <img
-    src="/images/github-logo.png"
-    alt="GitHub"
-    width={18}
-    height={18}
-    style={{
-      display: 'inline-block',
-      verticalAlign: 'middle',
-    }}
-  />
-  <span>GitHub</span>
-</a>
 
-        </nav>
+        <header style={{ padding: '1em 0.5em', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'sticky', top: 0, background: '#111', zIndex: 1000, width: '100%' }}>
+          <h1 style={{ fontSize: '2em', marginBottom: '0.5em', color: '#fff', textAlign: 'center', lineHeight: 1.2 }}>WWDD - What Would Drizz Do</h1>
+
+          <nav style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '1em', fontSize: '1rem', width: '100%', maxWidth: '900px' }}>
+            {[
+              { label: 'About Us', href: '#about-section' },
+              { label: 'Join Us', href: '#join-section' },
+              { label: 'Shop 🛒', href: '/shop', isLink: true },
+              { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
+              { label: 'Disclaimer', href: '#disclaimer-section' },
+            ].map(({ label, href, isLink, onClick }) =>
+              isLink ? (
+                <Link
+                  key={label}
+                  href={href}
+                  style={{ color: '#fff', textDecoration: 'none', transition: 'color 0.3s, text-shadow 0.3s' }}
+                  onMouseEnter={(e) => {
+                    const target = e.currentTarget as HTMLElement;
+                    target.style.color = '#4f83ff';
+                    target.style.textShadow = '0 0 6px #4f83ff';
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.currentTarget as HTMLElement;
+                    target.style.color = '#fff';
+                    target.style.textShadow = 'none';
+                  }}
+                >
+                  {label}
+                </Link>
+              ) : (
+                <a
+                  key={label}
+                  href={href}
+                  onClick={onClick}
+                  style={{ color: '#fff', textDecoration: 'none', cursor: onClick ? 'pointer' : 'default', transition: 'color 0.3s, text-shadow 0.3s' }}
+                  onMouseEnter={(e) => {
+                    const target = e.currentTarget as HTMLElement;
+                    target.style.color = '#4f83ff';
+                    target.style.textShadow = '0 0 6px #4f83ff';
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.currentTarget as HTMLElement;
+                    target.style.color = '#fff';
+                    target.style.textShadow = 'none';
+                  }}
+                >
+                  {label}
+                </a>
+              )
+            )}
+
+            {/* GitHub link */}
+            <a
+              href="https://github.com/DrizzCoin/DRIZZ"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25em', color: '#fff', textDecoration: 'none', transition: 'color 0.3s, text-shadow 0.3s' }}
+              onMouseEnter={(e) => {
+                const target = e.currentTarget as HTMLElement;
+                target.style.color = '#4f83ff';
+                target.style.textShadow = '0 0 6px #4f83ff';
+              }}
+              onMouseLeave={(e) => {
+                const target = e.currentTarget as HTMLElement;
+                target.style.color = '#fff';
+                target.style.textShadow = 'none';
+              }}
+            >
+              <img src="/images/github-logo.png" alt="GitHub" width={18} height={18} style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span>GitHub</span>
+            </a>
+
+          </nav>
           <button
             onClick={() => setShowDogma(true)}
             style={{
