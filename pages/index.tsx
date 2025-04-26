@@ -76,7 +76,7 @@ export default function Home() {
               color: '#fff',
               display: 'flex',
               alignItems: 'center',
-              paddingTop: '0.25em' // slight adjustment to align visually with other links
+              paddingTop: '0.5em' // slight adjustment to align visually with other links
             }}
           >
             <img
