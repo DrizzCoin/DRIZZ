@@ -152,12 +152,12 @@ export default function Home() {
     transition: 'color 0.3s, text-shadow 0.3s',
   }}
   onMouseEnter={(e) => {
-    const target = e.target as HTMLElement;   // ✅ Fix
+    const target = e.currentTarget as HTMLAnchorElement; // ✅ use currentTarget not target
     target.style.color = '#4f83ff';
     target.style.textShadow = '0 0 6px #4f83ff';
   }}
   onMouseLeave={(e) => {
-    const target = e.target as HTMLElement;   // ✅ Fix
+    const target = e.currentTarget as HTMLAnchorElement; // ✅ use currentTarget not target
     target.style.color = '#fff';
     target.style.textShadow = 'none';
   }}
@@ -174,6 +174,7 @@ export default function Home() {
   />
   <span>GitHub</span>
 </a>
+
         </nav>
           <button
             onClick={() => setShowDogma(true)}
