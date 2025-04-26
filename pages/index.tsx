@@ -71,15 +71,21 @@ export default function Home() {
               href="https://github.com/DrizzCoin/DRIZZ"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ 
-              margin: '0 1em', 
-              color: '#fff', 
-              display: 'flex', 
+              style={{
+              margin: '0 1em',
+              color: '#fff',
+              display: 'flex',
               alignItems: 'center',
-              paddingTop: '0.2em'  // <- fix vertical offset
-          }}
-        >
-          <img src="/images/github-logo.png" alt="GitHub" width={20} height={20} style={{ marginRight: '6px' }} />
+              paddingTop: '0.25em' // slight adjustment to align visually with other links
+            }}
+          >
+            <img
+              src="/images/github-logo.png"
+              alt="GitHub"
+              width={20}
+              height={20}
+              style={{ marginRight: '6px' }}
+            />
             GitHub
           </a>
           </nav>
