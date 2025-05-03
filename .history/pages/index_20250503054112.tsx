@@ -391,7 +391,7 @@ export default function Home() {
   </div>
 </footer>
 
-        {showAbout && <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />}
+{showAbout && <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />}
         {showShop && <ShopModal onClose={() => setShowShop(false)} />}
         {showGameFi && <GameFiModal onClose={() => setShowGameFi(false)} />}
         {showDogma && <DogmaModal onClose={() => setShowDogma(false)} />}

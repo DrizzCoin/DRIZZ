@@ -61,7 +61,7 @@ export default function Home() {
               }}
             >
               {[
-                { label: 'About Us', href: '#', onClick: () => setShowAbout(true) },
+                { label: 'About Us', href: '' onClick: () => setShowAbout(true) },
                 { label: 'Join Us', href: '#join-section' },
                 { label: 'Shop 🛒', href: '#', onClick: () => setShowShop(true) },
                 { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
@@ -391,7 +391,7 @@ export default function Home() {
   </div>
 </footer>
 
-        {showAbout && <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />}
+        {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
         {showShop && <ShopModal onClose={() => setShowShop(false)} />}
         {showGameFi && <GameFiModal onClose={() => setShowGameFi(false)} />}
         {showDogma && <DogmaModal onClose={() => setShowDogma(false)} />}

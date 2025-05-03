@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import ComicViewer from '@/components/ComicViewer';
 import DrizzStatsLive from '@/components/DrizzStatsLive';
-import AboutModal from '@/components/AboutModal'; // update path if different
 import ShopModal from '@/components/ShopModal';
 import GameFiModal from '@/components/GameFiModal';
 import DogmaModal from '@/components/DogmaModal';
@@ -17,7 +16,6 @@ const FORM_ACTION_URL = process.env.NEXT_PUBLIC_FORM_SUBMIT_URL || "";
 
 export default function Home() {
   const [showDogma, setShowDogma] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
   const [showShop, setShowShop] = useState(false);
   const [showGameFi, setShowGameFi] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -61,7 +59,7 @@ export default function Home() {
               }}
             >
               {[
-                { label: 'About Us', href: '#', onClick: () => setShowAbout(true) },
+                { label: 'About Us', href: '#about-section' },
                 { label: 'Join Us', href: '#join-section' },
                 { label: 'Shop 🛒', href: '#', onClick: () => setShowShop(true) },
                 { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
@@ -373,7 +371,7 @@ export default function Home() {
     </a>
 
     <a
-      href="/DRIZZ_Tokenomics_Utility_Overview.html"
+      href="/public/DRIZZ_Tokenomics%20_Utility_Overview.html"
       target="_blank"
       rel="noopener noreferrer"
       style={{
@@ -391,7 +389,6 @@ export default function Home() {
   </div>
 </footer>
 
-        {showAbout && <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />}
         {showShop && <ShopModal onClose={() => setShowShop(false)} />}
         {showGameFi && <GameFiModal onClose={() => setShowGameFi(false)} />}
         {showDogma && <DogmaModal onClose={() => setShowDogma(false)} />}

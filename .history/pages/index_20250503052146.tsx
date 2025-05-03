@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import ComicViewer from '@/components/ComicViewer';
 import DrizzStatsLive from '@/components/DrizzStatsLive';
-import AboutModal from '@/components/AboutModal'; // update path if different
 import ShopModal from '@/components/ShopModal';
 import GameFiModal from '@/components/GameFiModal';
 import DogmaModal from '@/components/DogmaModal';
@@ -61,7 +60,7 @@ export default function Home() {
               }}
             >
               {[
-                { label: 'About Us', href: '#', onClick: () => setShowAbout(true) },
+                { label: 'About Us', onClick: () => setShowAbout(true) },
                 { label: 'Join Us', href: '#join-section' },
                 { label: 'Shop 🛒', href: '#', onClick: () => setShowShop(true) },
                 { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
@@ -391,7 +390,6 @@ export default function Home() {
   </div>
 </footer>
 
-        {showAbout && <AboutModal isOpen={showAbout} onClose={() => setShowAbout(false)} />}
         {showShop && <ShopModal onClose={() => setShowShop(false)} />}
         {showGameFi && <GameFiModal onClose={() => setShowGameFi(false)} />}
         {showDogma && <DogmaModal onClose={() => setShowDogma(false)} />}
