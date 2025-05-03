@@ -56,16 +56,9 @@ DRIZZ unlocks exclusive access across the WWDD ecosystem:
 
 ---
 
-## 🛠 Presale Setup (Smithii.io)
+## 🔐 Smart Contract Transparency
 
-- **Presale Price:** 0.01 SOL per DRIZZ  
-- **LP Launch Price:** 0.015 SOL per DRIZZ  
-- **Total Supply for Presale:** 10,000 DRIZZ  
-- **Soft Cap:** 5 SOL  
-- **Hard Cap:** 100 SOL  
-- **Sale Rate:** 100 DRIZZ / 1 SOL
-
-> Smart contracts handle vesting & liquidity locks to ensure transparency.
+Smart contracts will be implemented to handle vesting and liquidity locks, ensuring transparency and trust in token allocations. These will be verifiable on-chain and announced via official channels.
 
 ---
 

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import ComicViewer from '@/components/ComicViewer';
 import DrizzStatsLive from '@/components/DrizzStatsLive';
+import ShopModal from '@/components/ShopModal';
 import GameFiModal from '@/components/GameFiModal';
 import DogmaModal from '@/components/DogmaModal';
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -15,6 +16,7 @@ const FORM_ACTION_URL = process.env.NEXT_PUBLIC_FORM_SUBMIT_URL || "";
 
 export default function Home() {
   const [showDogma, setShowDogma] = useState(false);
+  const [showShop, setShowShop] = useState(false);
   const [showGameFi, setShowGameFi] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -44,53 +46,65 @@ export default function Home() {
         <header style={{ padding: '1em 0.5em', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'sticky', top: 0, background: '#111', zIndex: 1000, width: '100%' }}>
           <h1 style={{ fontSize: '2em', marginBottom: '0.5em', color: '#fff', textAlign: 'center', lineHeight: 1.2 }}>WWDD - What Would Drizz Do</h1>
 
-          <nav style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '1em', fontSize: '1rem', width: '100%', maxWidth: '900px' }}>
-            {[
-              { label: 'About Us', href: '#about-section' },
-              { label: 'Join Us', href: '#join-section' },
-              { label: 'Shop 🛒', href: '/shop', isLink: true },
-              { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
-              { label: 'Disclaimer', href: '#disclaimer-section' },
-            ].map(({ label, href, isLink, onClick }) =>
-              isLink ? (
-                <Link
-                  key={label}
-                  href={href}
-                  style={{ color: '#fff', textDecoration: 'none', transition: 'color 0.3s, text-shadow 0.3s' }}
-                  onMouseEnter={(e) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.color = '#4f83ff';
-                    target.style.textShadow = '0 0 6px #4f83ff';
-                  }}
-                  onMouseLeave={(e) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.color = '#fff';
-                    target.style.textShadow = 'none';
-                  }}
-                >
-                  {label}
-                </Link>
-              ) : (
-                <a
-                  key={label}
-                  href={href}
-                  onClick={onClick}
-                  style={{ color: '#fff', textDecoration: 'none', cursor: onClick ? 'pointer' : 'default', transition: 'color 0.3s, text-shadow 0.3s' }}
-                  onMouseEnter={(e) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.color = '#4f83ff';
-                    target.style.textShadow = '0 0 6px #4f83ff';
-                  }}
-                  onMouseLeave={(e) => {
-                    const target = e.currentTarget as HTMLElement;
-                    target.style.color = '#fff';
-                    target.style.textShadow = 'none';
-                  }}
-                >
-                  {label}
-                </a>
-              )
-            )}
+          <nav
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '1em',
+                fontSize: '1rem',
+                width: '100%',
+                maxWidth: '900px',
+              }}
+            >
+              {[
+                { label: 'About Us', href: '#about-section' },
+                { label: 'Join Us', href: '#join-section' },
+                { label: 'Shop 🛒', href: '#', onClick: () => setShowShop(true) },
+                { label: 'GameFi', href: '#', onClick: () => setShowGameFi(true) },
+                { label: 'Disclaimer', href: '#disclaimer-section' },
+              ].map(({ label, href, onClick }) => {
+                const sharedStyles = {
+                  color: '#fff',
+                  textDecoration: 'none',
+                  transition: 'color 0.3s, text-shadow 0.3s',
+                  cursor: onClick ? 'pointer' : 'default',
+                };
+
+                const handleHover = (e: React.MouseEvent<HTMLElement>, hover: boolean) => {
+                  const target = e.currentTarget;
+                  target.style.color = hover ? '#4f83ff' : '#fff';
+                  target.style.textShadow = hover ? '0 0 6px #4f83ff' : 'none';
+                };
+
+                if (onClick) {
+                  return (
+                    <a
+                      key={label}
+                      href={href}
+                      onClick={onClick}
+                      style={sharedStyles}
+                      onMouseEnter={(e) => handleHover(e, true)}
+                      onMouseLeave={(e) => handleHover(e, false)}
+                    >
+                      {label}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={label}
+                    href={href}
+                    style={sharedStyles}
+                    onMouseEnter={(e) => handleHover(e, true)}
+                    onMouseLeave={(e) => handleHover(e, false)}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
 
             {/* GitHub link */}
             <a
@@ -245,7 +259,7 @@ export default function Home() {
   </p>
 
   <a
-  href="https://tools.smithii.io/launch/DRIZZ:-Don%E2%80%99t-Get-Left"
+  href="https://x.com/DRIZZ_WWDD"
   target="_blank"
   rel="noopener noreferrer"
   style={{
@@ -375,6 +389,7 @@ export default function Home() {
   </div>
 </footer>
 
+        {showShop && <ShopModal onClose={() => setShowShop(false)} />}
         {showGameFi && <GameFiModal onClose={() => setShowGameFi(false)} />}
         {showDogma && <DogmaModal onClose={() => setShowDogma(false)} />}
       </main>
