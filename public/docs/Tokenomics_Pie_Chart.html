@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DRIZZ Tokenomics Pie Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111827;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    #chartContainer {
+      background-color: #1f2937;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <h2>DRIZZ Tokenomics Breakdown</h2>
+  <div id="chartContainer">
+    <canvas id="drizzChart" width="400" height="400"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('drizzChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: [
+          'Founders (30%) - 102M DRIZZ',
+          'Liquidity Pools (20%) - 68M DRIZZ',
+          'Public (10%) - 34M DRIZZ',
+          'Marketing & Partnerships (7.5%) - 25.5M DRIZZ',
+          'Community & Airdrops (7.5%) - 25.5M DRIZZ',
+          'Staking + Utility (10%) - 34M DRIZZ',
+          'Development & Reserves (15%) - 51M DRIZZ'
+        ],
+        datasets: [{
+          data: [30, 20, 10, 7.5, 7.5, 10, 15],
+          backgroundColor: [
+            '#000000',   // Founders - Black
+            '#40ae44',   // Liquidity Pools - Green
+            '#ffffff',   // Public - White
+            '#6c757d',   // Marketing - Gray
+            '#1e3a8a',   // Community - Blue
+            '#6a0dad',   // Staking - Deep Purple
+            '#b08d57'    // Development - Bronze
+          ],
+          borderColor: '#111827',
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#ffffff',
+              font: { size: 14 }
+            },
+            position: 'bottom'
+          },
+          tooltip: {
+            bodyFont: {
+              size: 14
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

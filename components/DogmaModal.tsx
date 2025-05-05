@@ -74,24 +74,60 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
               <p>
                 DRIZZ isn’t just hype—our tokenomics ensure a balanced, fair distribution while fueling long-term growth. Join us as part of the revolution.
               </p>
-              <table style={{ width: '100%', color: 'white', borderCollapse: 'collapse', marginBottom: '20px' }}>
+              <table style={{ width: '100%', color: 'white', borderCollapse: 'collapse', marginBottom: '20px', fontSize: '0.85em' }}>
                 <thead style={{ background: '#444' }}>
                   <tr>
                     <th>Category</th>
                     <th>Tokens Allocated</th>
                     <th>% of Supply</th>
+                    <th>Wallet Address</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Founder’s Allocation (Vesting)</td><td>102,000,000 DRIZZ</td><td>30%</td></tr>
-                  <tr><td>Liquidity Pool (DEX & Listings)</td><td>68,000,000 DRIZZ</td><td>20%</td></tr>
-                  <tr><td>Public (Pre-sale / Investors)</td><td>51,000,000 DRIZZ</td><td>15%</td></tr>
-                  <tr><td>Marketing & Partnerships</td><td>25,500,000 DRIZZ</td><td>7.5%</td></tr>
-                  <tr><td>Community Rewards & Airdrops</td><td>25,500,000 DRIZZ</td><td>7.5%</td></tr>
-                  <tr><td>Staking, Token-Gated Access</td><td>17,000,000 DRIZZ</td><td>5%</td></tr>
-                  <tr><td>Development & Team Reserves</td><td>51,000,000 DRIZZ</td><td>15%</td></tr>
                   <tr>
-                    <td colSpan={3} style={{ textAlign: 'center', paddingTop: '20px' }}>
+                    <td>Founder’s Allocation (Vesting)</td>
+                    <td>102,000,000 DRIZZ</td>
+                    <td>30%</td>
+                    <td>6kCUKGTTUxkm29TYnS6UnTrnhx9U8cDFy4fJCkv1hE8X</td>
+                  </tr>
+                  <tr>
+                    <td>Liquidity Pool (DEX & Listings)</td>
+                    <td>68,000,000 DRIZZ</td>
+                    <td>20%</td>
+                    <td>4J4qn9HRppFt7zz64pq1ZKnHMDd5XWFf5osVGhV8VLo</td>
+                  </tr>
+                  <tr>
+                    <td>Public (Pre-sale / Investors)</td>
+                    <td>34,000,000 DRIZZ</td>
+                    <td>10%</td>
+                    <td>SEbhFqepR89VqGBBG9ZAufb3b3eSz52Vm9BFz3HXds</td>
+                  </tr>
+                  <tr>
+                    <td>Marketing & Partnerships</td>
+                    <td>25,500,000 DRIZZ</td>
+                    <td>7.5%</td>
+                    <td>53yUZQNbxwYXrZzpQV3YVRF3ta22R1D3LyhehbLCb88</td>
+                  </tr>
+                  <tr>
+                    <td>Community Rewards & Airdrops</td>
+                    <td>25,500,000 DRIZZ</td>
+                    <td>7.5%</td>
+                    <td>5qBqFzAo2KHuU84B5E7MLAch7kGivPEmL9h9CDg3oeU1</td>
+                  </tr>
+                  <tr>
+                    <td>Staking, Token-Gated Access</td>
+                    <td>34,000,000 DRIZZ</td>
+                    <td>10%</td>
+                    <td>3uicGF3V85MXtTXPka7SvjGfPzitm8jv2USdWZtPtZpk</td>
+                  </tr>
+                  <tr>
+                    <td>Development & Team Reserves</td>
+                    <td>51,000,000 DRIZZ</td>
+                    <td>15%</td>
+                    <td>ApSnQxkLQKb523Mt3WDvHDHDfUu8jbioc15rGKuCTwKz</td>
+                  </tr>
+                  <tr>
+                    <td colSpan={4} style={{ textAlign: 'center', paddingTop: '20px' }}>
                       <a
                         download
                         href="/DRIZZ_Tokenomics_Utility_Overview.html"
