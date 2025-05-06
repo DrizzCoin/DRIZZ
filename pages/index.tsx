@@ -374,8 +374,6 @@ export default function Home() {
 
     <a
       href="/DRIZZ_Tokenomics_Utility_Overview.html"
-      target="_blank"
-      rel="noopener noreferrer"
       style={{
         display: 'inline-block',
         padding: '10px 20px',
@@ -383,7 +381,8 @@ export default function Home() {
         color: '#000',
         fontWeight: 'bold',
         textDecoration: 'none',
-        borderRadius: '8px'
+        borderRadius: '8px',
+        marginRight: '10px'
       }}
     >
       Tokenomics

@@ -122,7 +122,7 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
                     <td colSpan={4} style={{ textAlign: 'center', paddingTop: '20px' }}>
                       <a
                         download
-                        href="/DRIZZ_Tokenomics_Utility_Overview.html"
+                        href="/docs/DRIZZ_Tokenomics_Utility_Overview.pdf"
                         style={{
                           backgroundColor: '#0047AB',
                           color: 'white',
