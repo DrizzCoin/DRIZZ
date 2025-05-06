@@ -78,53 +78,45 @@ const DogmaModal: React.FC<DogmaModalProps> = ({ onClose }) => {
                 <thead style={{ background: '#444' }}>
                   <tr>
                     <th>Category</th>
-                    <th>Tokens Allocated</th>
-                    <th>% of Supply</th>
-                    <th>Wallet Address</th>
+                    <th style={{ textAlign: "center" }}>Tokens Allocated</th>
+                    <th style={{ textAlign: "center" }}>% of Supply</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>Founder’s Allocation (Vesting)</td>
-                    <td>102,000,000 DRIZZ</td>
-                    <td>30%</td>
-                    <td>6kCUKGTTUxkm29TYnS6UnTrnhx9U8cDFy4fJCkv1hE8X</td>
+                    <td style={{ textAlign: "center" }}>102,000,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>30%</td>
                   </tr>
                   <tr>
                     <td>Liquidity Pool (DEX & Listings)</td>
-                    <td>68,000,000 DRIZZ</td>
-                    <td>20%</td>
-                    <td>4J4qn9HRppFt7zz64pq1ZKnHMDd5XWFf5osVGhV8VLo</td>
+                    <td style={{ textAlign: "center" }}>68,000,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>20%</td>
                   </tr>
                   <tr>
                     <td>Public (Pre-sale / Investors)</td>
-                    <td>34,000,000 DRIZZ</td>
-                    <td>10%</td>
-                    <td>SEbhFqepR89VqGBBG9ZAufb3b3eSz52Vm9BFz3HXds</td>
+                    <td style={{ textAlign: "center" }}>34,000,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>10%</td>
                   </tr>
                   <tr>
                     <td>Marketing & Partnerships</td>
-                    <td>25,500,000 DRIZZ</td>
-                    <td>7.5%</td>
-                    <td>53yUZQNbxwYXrZzpQV3YVRF3ta22R1D3LyhehbLCb88</td>
+                    <td style={{ textAlign: "center" }}>25,500,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>7.5%</td>
                   </tr>
                   <tr>
                     <td>Community Rewards & Airdrops</td>
-                    <td>25,500,000 DRIZZ</td>
-                    <td>7.5%</td>
-                    <td>5qBqFzAo2KHuU84B5E7MLAch7kGivPEmL9h9CDg3oeU1</td>
+                    <td style={{ textAlign: "center" }}>25,500,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>7.5%</td>
                   </tr>
                   <tr>
                     <td>Staking, Token-Gated Access</td>
-                    <td>34,000,000 DRIZZ</td>
-                    <td>10%</td>
-                    <td>3uicGF3V85MXtTXPka7SvjGfPzitm8jv2USdWZtPtZpk</td>
+                    <td style={{ textAlign: "center" }}>34,000,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>10%</td>
                   </tr>
                   <tr>
                     <td>Development & Team Reserves</td>
-                    <td>51,000,000 DRIZZ</td>
-                    <td>15%</td>
-                    <td>ApSnQxkLQKb523Mt3WDvHDHDfUu8jbioc15rGKuCTwKz</td>
+                    <td style={{ textAlign: "center" }}>51,000,000 DRIZZ</td>
+                    <td style={{ textAlign: "center" }}>15%</td>
                   </tr>
                   <tr>
                     <td colSpan={4} style={{ textAlign: 'center', paddingTop: '20px' }}>
